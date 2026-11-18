@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 346" width="960" height="346" role="img" aria-labelledby="t d">
+  <title id="t">The evidence model: five statuses and what each one requires</title>
+  <desc id="d">Verified needs a named reviewer, dated evidence and a method. Partially verified and failed need reviewer, evidence, the specific gap and a recommendation. Not applicable needs a scope rationale and a named human approver. Insufficient evidence is the default and lists the artifact to collect. The validator rejects any status without its evidence.</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+      .h { font-size: 22px; font-weight: 700; fill: #0b0b0b; }
+      .s { font-size: 13px; fill: #52514e; }
+      .ct { font-size: 15px; font-weight: 700; fill: #0b0b0b; }
+      .k { font-size: 11px; font-weight: 700; fill: #8a8984; letter-spacing: 0.06em; }
+      .cd { font-size: 12.5px; fill: #0b0b0b; }
+      .card { fill: #ffffff; stroke: #e1e0d9; }
+      .rule { font-size: 13px; fill: #0b0b0b; }
+      .code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12.5px; fill: #196b77; font-weight: 600; }
+    </style>
+  </defs>
+  <rect x="0.5" y="0.5" width="959" height="345" rx="16" fill="#fcfcfb" stroke="#e1e0d9"/>
+  <text class="h" x="36" y="52">Every status has to earn its evidence</text>
+  <text class="s" x="36" y="76">No status is ever set automatically. Scanner hits are leads; a person records the determination.</text>
+
+  <g>
+    <rect class="card" x="36" y="100" width="168" height="168" rx="12"/>
+    <rect x="52" y="116" width="10" height="10" rx="2" fill="#0ca30c"/>
+    <text class="ct" x="70" y="126">Verified</text>
+    <text class="k" x="52" y="156">NEEDS</text>
+    <text class="cd" x="52" y="180">Named reviewer</text>
+    <text class="cd" x="52" y="200">Dated evidence</text>
+    <text class="cd" x="52" y="220">Verification method</text>
+    <text class="cd" x="52" y="240">Tested scope stated</text>
+  </g>
+  <g>
+    <rect class="card" x="216" y="100" width="168" height="168" rx="12"/>
+    <rect x="232" y="116" width="10" height="10" rx="2" fill="#fab219"/>
+    <text class="ct" x="250" y="126">Partially verified</text>
+    <text class="k" x="232" y="156">NEEDS</text>
+    <text class="cd" x="232" y="180">Reviewer and evidence</text>
+    <text class="cd" x="232" y="200">The specific gap</text>
+    <text class="cd" x="232" y="220">Recommendation</text>
+  </g>
+  <g>
+    <rect class="card" x="396" y="100" width="168" height="168" rx="12"/>
+    <rect x="412" y="116" width="10" height="10" rx="2" fill="#d03b3b"/>
+    <text class="ct" x="430" y="126">Failed</text>
+    <text class="k" x="412" y="156">NEEDS</text>
+    <text class="cd" x="412" y="180">Reviewer and evidence</text>
+    <text class="cd" x="412" y="200">Observation and impact</text>
+    <text class="cd" x="412" y="220">Recommendation</text>
+  </g>
+  <g>
+    <rect class="card" x="576" y="100" width="168" height="168" rx="12"/>
+    <rect x="592" y="116" width="10" height="10" rx="2" fill="#e1e0d9" stroke="#a8a79f"/>
+    <text class="ct" x="610" y="126">Not applicable</text>
+    <text class="k" x="592" y="156">NEEDS</text>
+    <text class="cd" x="592" y="180">Scope rationale</text>
+    <text class="cd" x="592" y="200">Named human approver</text>
+  </g>
+  <g>
+    <rect class="card" x="756" y="100" width="168" height="168" rx="12"/>
+    <rect x="772" y="116" width="10" height="10" rx="2" fill="#a8a79f"/>
+    <text class="ct" x="790" y="126">Insufficient</text>
+    <text class="ct" x="790" y="145">evidence</text>
+    <text class="k" x="772" y="172">MEANS</text>
+    <text class="cd" x="772" y="196">The default for every</text>
+    <text class="cd" x="772" y="216">control; the report lists</text>
+    <text class="cd" x="772" y="236">the artifact to collect</text>
+  </g>
+
+  <rect x="36" y="286" width="888" height="38" rx="10" fill="#e8f2f3"/>
+  <text x="56" y="310"><tspan class="code">validate_assessment.py</tspan><tspan class="rule" dx="10">rejects any status without its evidence. No evidence means insufficient evidence, never verified.</tspan></text>
+</svg>

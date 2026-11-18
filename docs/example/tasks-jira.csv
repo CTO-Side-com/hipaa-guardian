@@ -1,0 +1,502 @@
+Summary,Issue Type,Priority,Labels,Labels,Labels,Labels,Due Date,Description
+GAP-TEC-001 Fix: Access control enforcement,Task,Highest,hipaa,hipaa-technical,confirmed-gap,tec-001,2026-12-05,"HIPAA Guardian GAP-TEC-001: Failed, critical urgency
+Control: TEC-001, 45 CFR 164.312(a)(1) (regulatory)
+Observation: The appointment export endpoint loads records by ID without a clinic filter (src/exports/views.py:41).
+Recommendation: Scope the export query by the session's clinic_id and add a negative cross-tenant test.
+Evidence on file: src/exports/views.py:41
+Done when: tests/test_exports.py::test_cross_tenant_export_denied returns 403 for synthetic clinic B
+Owner: Platform team
+Internal readiness item, not a legal determination."
+GAP-ENG-003 Fix: Log and telemetry minimization,Task,High,hipaa,hipaa-engineering,confirmed-gap,eng-003,2026-12-12,"HIPAA Guardian GAP-ENG-003: Failed, high urgency
+Control: ENG-003, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate) (engineering)
+Observation: Booking errors log the full request payload, including patient name and insurance ID, to the APM service (src/booking/handlers.py:118).
+Recommendation: Log request IDs only, add a redaction filter, and assert in a test that no patient fields reach logs.
+Evidence on file: src/booking/handlers.py:118
+Done when: Force a synthetic booking error and confirm the captured log event has no patient fields
+Owner: Backend team
+Internal readiness item, not a legal determination."
+GAP-ENG-002 Fix: PHI-safe AI and tool invocation,Task,Highest,hipaa,hipaa-engineering,confirmed-gap,eng-002,2026-12-19,"HIPAA Guardian GAP-ENG-002: Partially verified, critical urgency
+Control: ENG-002, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate) (engineering)
+Observation: Tool calls check tenant scope, but the send_reminder tool accepts any phone number the model returns.
+Recommendation: Resolve reminder recipients server-side from the verified patient record and reject model-supplied numbers.
+Evidence on file: tests/test_agent_tools.py:57
+Done when: Inject a synthetic instruction to text a different number; the tool call must be refused
+Owner: AI team
+Internal readiness item, not a legal determination."
+GAP-ADM-023 Fix: Data backup plan,Task,High,hipaa,hipaa-administrative,confirmed-gap,adm-023,2027-01-15,"HIPAA Guardian GAP-ADM-023: Partially verified, high urgency
+Control: ADM-023, 45 CFR 164.308(a)(7)(ii)(A) (regulatory)
+Observation: Nightly database snapshots exist (infra/db.tf:22), but no restore has ever been tested.
+Recommendation: Run and document a restore of a synthetic snapshot into an isolated environment.
+Evidence on file: infra/db.tf:22
+Done when: Fix verified by a re-run test and recorded in assessment.json
+Owner: Infrastructure
+Internal readiness item, not a legal determination."
+GAP-ADM-002 Collect evidence: Risk analysis,Task,Highest,hipaa,hipaa-administrative,evidence-request,adm-002,,"HIPAA Guardian GAP-ADM-002: Evidence missing, critical urgency
+Control: ADM-002, 45 CFR 164.308(a)(1)(ii)(A) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Current organization-wide risk assessment covering all ePHI, not just source code
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-003 Collect evidence: Risk management,Task,Highest,hipaa,hipaa-administrative,evidence-request,adm-003,,"HIPAA Guardian GAP-ADM-003: Evidence missing, critical urgency
+Control: ADM-003, 45 CFR 164.308(a)(1)(ii)(B) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Risk register with selected safeguards, accountable owners and closure evidence
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-011 Collect evidence: Information access management,Task,Highest,hipaa,hipaa-administrative,evidence-request,adm-011,,"HIPAA Guardian GAP-ADM-011: Evidence missing, critical urgency
+Control: ADM-011, 45 CFR 164.308(a)(4)(i) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Access governance policy and patient/tenant authorization design
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-021 Collect evidence: Incident response and reporting,Task,Highest,hipaa,hipaa-administrative,evidence-request,adm-021,,"HIPAA Guardian GAP-ADM-021: Evidence missing, critical urgency
+Control: ADM-021, 45 CFR 164.308(a)(6)(ii) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Exercise/evidence of detection, response, mitigation and incident documentation
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-029 Collect evidence: Business associate subcontractor assurances,Task,Highest,hipaa,hipaa-administrative,evidence-request,adm-029,,"HIPAA Guardian GAP-ADM-029: Evidence missing, critical urgency
+Control: ADM-029, 45 CFR 164.308(b)(2)-(3) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Signed subcontractor BAAs or documented permitted arrangement and service scope
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-BRH-001 Collect evidence: Business associate breach notification,Task,Highest,hipaa,hipaa-breach,evidence-request,brh-001,,"HIPAA Guardian GAP-BRH-001: Evidence missing, critical urgency
+Control: BRH-001, 45 CFR 164.410 (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Breach identification/escalation procedure, timing and contractual notification responsibilities
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ENG-001 Collect evidence: Cross-tenant authorization in all data planes,Task,Highest,hipaa,hipaa-engineering,evidence-request,eng-001,,"HIPAA Guardian GAP-ENG-001: Evidence missing, critical urgency
+Control: ENG-001, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate) (engineering)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Synthetic multi-tenant negative tests across queries, caches, search and queues
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+"GAP-GEN-001 Collect evidence: Protect ePHI confidentiality, integrity and availability",Task,Highest,hipaa,hipaa-general,evidence-request,gen-001,,"HIPAA Guardian GAP-GEN-001: Evidence missing, critical urgency
+Control: GEN-001, 45 CFR 164.306(a) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Organization-wide asset and data inventory; documented protections and threat model
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ORG-001 Collect evidence: Business associate contractual protections,Task,Highest,hipaa,hipaa-organizational,evidence-request,org-001,,"HIPAA Guardian GAP-ORG-001: Evidence missing, critical urgency
+Control: ORG-001, 45 CFR 164.314(a)(1)-(2) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Executed agreements with obligated vendors and documented applicability
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-PRV-001 Collect evidence: Permitted PHI uses and disclosures,Task,Highest,hipaa,hipaa-privacy,evidence-request,prv-001,,"HIPAA Guardian GAP-PRV-001: Evidence missing, critical urgency
+Control: PRV-001, 45 CFR 164.502(a) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Documented permitted uses, downstream disclosures and guardrails; legal review
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-PRV-002 Collect evidence: Business associate agreements for PHI,Task,Highest,hipaa,hipaa-privacy,evidence-request,prv-002,,"HIPAA Guardian GAP-PRV-002: Evidence missing, critical urgency
+Control: PRV-002, 45 CFR 164.504(e) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Signed customer BAAs and permitted-use restrictions; legal review
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-TEC-005 Collect evidence: Encryption and decryption,Task,Highest,hipaa,hipaa-technical,evidence-request,tec-005,,"HIPAA Guardian GAP-TEC-005: Evidence missing, critical urgency
+Control: TEC-005, 45 CFR 164.312(a)(2)(iv) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Evidence of ePHI encryption at rest and key management; addressable evaluation
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-TEC-009 Collect evidence: Person or entity authentication,Task,Highest,hipaa,hipaa-technical,evidence-request,tec-009,,"HIPAA Guardian GAP-TEC-009: Evidence missing, critical urgency
+Control: TEC-009, 45 CFR 164.312(d) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Verified identity at PHI lookup, workflow and tool-action boundaries
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-TEC-010 Collect evidence: Transmission security,Task,Highest,hipaa,hipaa-technical,evidence-request,tec-010,,"HIPAA Guardian GAP-TEC-010: Evidence missing, critical urgency
+Control: TEC-010, 45 CFR 164.312(e)(1) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: TLS and protections for all ePHI transmitting services
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-001 Collect evidence: Security management process,Task,High,hipaa,hipaa-administrative,evidence-request,adm-001,,"HIPAA Guardian GAP-ADM-001: Evidence missing, high urgency
+Control: ADM-001, 45 CFR 164.308(a)(1)(i) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Approved security program; incident detection and remediation ownership
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-005 Collect evidence: Information system activity review,Task,High,hipaa,hipaa-administrative,evidence-request,adm-005,,"HIPAA Guardian GAP-ADM-005: Evidence missing, high urgency
+Control: ADM-005, 45 CFR 164.308(a)(1)(ii)(D) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Regular audit/access/incident-log review policy and execution records
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-006 Collect evidence: Assigned security official,Task,High,hipaa,hipaa-administrative,evidence-request,adm-006,,"HIPAA Guardian GAP-ADM-006: Evidence missing, high urgency
+Control: ADM-006, 45 CFR 164.308(a)(2) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Named accountable security official and assigned responsibilities
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-007 Collect evidence: Workforce security,Task,High,hipaa,hipaa-administrative,evidence-request,adm-007,,"HIPAA Guardian GAP-ADM-007: Evidence missing, high urgency
+Control: ADM-007, 45 CFR 164.308(a)(3)(i) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Workforce access lifecycle policy and evidence of role restrictions
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-008 Collect evidence: Workforce authorization and supervision,Task,High,hipaa,hipaa-administrative,evidence-request,adm-008,,"HIPAA Guardian GAP-ADM-008: Evidence missing, high urgency
+Control: ADM-008, 45 CFR 164.308(a)(3)(ii)(A) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Approval workflows and access supervision records
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-009 Collect evidence: Workforce clearance procedure,Task,High,hipaa,hipaa-administrative,evidence-request,adm-009,,"HIPAA Guardian GAP-ADM-009: Evidence missing, high urgency
+Control: ADM-009, 45 CFR 164.308(a)(3)(ii)(B) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Background and suitability assessment process where appropriate
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-010 Collect evidence: Termination procedures,Task,High,hipaa,hipaa-administrative,evidence-request,adm-010,,"HIPAA Guardian GAP-ADM-010: Evidence missing, high urgency
+Control: ADM-010, 45 CFR 164.308(a)(3)(ii)(C) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Revocation workflow with timestamps, identity/device/token coverage
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-013 Collect evidence: Access authorization,Task,High,hipaa,hipaa-administrative,evidence-request,adm-013,,"HIPAA Guardian GAP-ADM-013: Evidence missing, high urgency
+Control: ADM-013, 45 CFR 164.308(a)(4)(ii)(B) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Least-privilege approval criteria and technical enforcement
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-014 Collect evidence: Access establishment and modification,Task,High,hipaa,hipaa-administrative,evidence-request,adm-014,,"HIPAA Guardian GAP-ADM-014: Evidence missing, high urgency
+Control: ADM-014, 45 CFR 164.308(a)(4)(ii)(C) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Access request, review and privilege change history
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-017 Collect evidence: Protection from malicious software,Task,High,hipaa,hipaa-administrative,evidence-request,adm-017,,"HIPAA Guardian GAP-ADM-017: Evidence missing, high urgency
+Control: ADM-017, 45 CFR 164.308(a)(5)(ii)(B) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Malware defenses, detections, reporting and response procedures
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-018 Collect evidence: Log-in monitoring,Task,High,hipaa,hipaa-administrative,evidence-request,adm-018,,"HIPAA Guardian GAP-ADM-018: Evidence missing, high urgency
+Control: ADM-018, 45 CFR 164.308(a)(5)(ii)(C) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Failed login monitoring, anomaly alerts and review evidence
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-019 Collect evidence: Password management,Task,High,hipaa,hipaa-administrative,evidence-request,adm-019,,"HIPAA Guardian GAP-ADM-019: Evidence missing, high urgency
+Control: ADM-019, 45 CFR 164.308(a)(5)(ii)(D) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Credential safeguards, MFA configuration and password governance
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-020 Collect evidence: Security incident procedures,Task,High,hipaa,hipaa-administrative,evidence-request,adm-020,,"HIPAA Guardian GAP-ADM-020: Evidence missing, high urgency
+Control: ADM-020, 45 CFR 164.308(a)(6)(i) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Documented incident management process and responsible parties
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-022 Collect evidence: Contingency planning,Task,High,hipaa,hipaa-administrative,evidence-request,adm-022,,"HIPAA Guardian GAP-ADM-022: Evidence missing, high urgency
+Control: ADM-022, 45 CFR 164.308(a)(7)(i) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Business continuity plan with ePHI dependencies and owners
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-024 Collect evidence: Disaster recovery plan,Task,High,hipaa,hipaa-administrative,evidence-request,adm-024,,"HIPAA Guardian GAP-ADM-024: Evidence missing, high urgency
+Control: ADM-024, 45 CFR 164.308(a)(7)(ii)(B) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Recovery procedures and recovery test results
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-025 Collect evidence: Emergency-mode operation plan,Task,High,hipaa,hipaa-administrative,evidence-request,adm-025,,"HIPAA Guardian GAP-ADM-025: Evidence missing, high urgency
+Control: ADM-025, 45 CFR 164.308(a)(7)(ii)(C) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Essential ePHI access/operations plan during disruption
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-028 Collect evidence: Periodic technical and nontechnical evaluation,Task,High,hipaa,hipaa-administrative,evidence-request,adm-028,,"HIPAA Guardian GAP-ADM-028: Evidence missing, high urgency
+Control: ADM-028, 45 CFR 164.308(a)(8) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Dated internal or independent evaluations and follow-up actions
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ENG-004 Collect evidence: Channel-specific PHI gating,Task,High,hipaa,hipaa-engineering,evidence-request,eng-004,,"HIPAA Guardian GAP-ENG-004: Evidence missing, high urgency
+Control: ENG-004, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate) (engineering)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Validation of patient identity, approved channel and routing safeguards
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ENG-005 Collect evidence: Credential exposure and rotation,Task,High,hipaa,hipaa-engineering,evidence-request,eng-005,,"HIPAA Guardian GAP-ENG-005: Evidence missing, high urgency
+Control: ENG-005, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate) (engineering)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Code/config scan results and credential manager/rotation workflow
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ENG-006 Collect evidence: Vulnerability management pipeline,Task,High,hipaa,hipaa-engineering,evidence-request,eng-006,,"HIPAA Guardian GAP-ENG-006: Evidence missing, high urgency
+Control: ENG-006, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate) (engineering)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Dependency/image/SAST scan evidence plus human triage and remediation tracking
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ENG-007 Collect evidence: Sensitive export and download protections,Task,High,hipaa,hipaa-engineering,evidence-request,eng-007,,"HIPAA Guardian GAP-ENG-007: Evidence missing, high urgency
+Control: ENG-007, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate) (engineering)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Authorization, least privilege, link expiry, no PHI in URLs
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ENG-008 Collect evidence: LLM retrieval isolation and retention,Task,High,hipaa,hipaa-engineering,evidence-request,eng-008,,"HIPAA Guardian GAP-ENG-008: Evidence missing, high urgency
+Control: ENG-008, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate) (engineering)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Per-tenant RAG filters, embeddings lifecycle, model prompt retention and provider subprocessor validation
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ENG-009 Collect evidence: Secure integration/webhook processing,Task,High,hipaa,hipaa-engineering,evidence-request,eng-009,,"HIPAA Guardian GAP-ENG-009: Evidence missing, high urgency
+Control: ENG-009, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate) (engineering)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Signed webhooks, scoped credentials, replay defense and privacy review
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ENG-010 Collect evidence: Restore and incident exercises,Task,High,hipaa,hipaa-engineering,evidence-request,eng-010,,"HIPAA Guardian GAP-ENG-010: Evidence missing, high urgency
+Control: ENG-010, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate) (engineering)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Synthetic backup restoration and controlled incident-response simulation
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ENG-011 Collect evidence: Safe AI side-effect boundaries,Task,High,hipaa,hipaa-engineering,evidence-request,eng-011,,"HIPAA Guardian GAP-ENG-011: Evidence missing, high urgency
+Control: ENG-011, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate) (engineering)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Explicit approval, idempotency and least-privilege scope for CRM/PMS writes
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-PHY-008 Collect evidence: Device and media controls,Task,High,hipaa,hipaa-physical,evidence-request,phy-008,,"HIPAA Guardian GAP-PHY-008: Evidence missing, high urgency
+Control: PHY-008, 45 CFR 164.310(d)(1) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Lifecycle controls for ePHI-bearing media and devices
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-PHY-009 Collect evidence: Device and media disposal,Task,High,hipaa,hipaa-physical,evidence-request,phy-009,,"HIPAA Guardian GAP-PHY-009: Evidence missing, high urgency
+Control: PHY-009, 45 CFR 164.310(d)(2)(i) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Secure disposal procedures and verifiable practice
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-PHY-010 Collect evidence: Media reuse,Task,High,hipaa,hipaa-physical,evidence-request,phy-010,,"HIPAA Guardian GAP-PHY-010: Evidence missing, high urgency
+Control: PHY-010, 45 CFR 164.310(d)(2)(ii) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Secure data removal before hardware/media reuse
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-POL-001 Collect evidence: Implemented security policies and procedures,Task,High,hipaa,hipaa-documentation,evidence-request,pol-001,,"HIPAA Guardian GAP-POL-001: Evidence missing, high urgency
+Control: POL-001, 45 CFR 164.316(a) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Approved operational procedures and practice evidence
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-POL-002 Collect evidence: Document required policies and activities,Task,High,hipaa,hipaa-documentation,evidence-request,pol-002,,"HIPAA Guardian GAP-POL-002: Evidence missing, high urgency
+Control: POL-002, 45 CFR 164.316(b)(1) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Versioned written policies, procedures and documented assessments
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-POL-003 Collect evidence: Six-year security-document retention,Task,High,hipaa,hipaa-documentation,evidence-request,pol-003,,"HIPAA Guardian GAP-POL-003: Evidence missing, high urgency
+Control: POL-003, 45 CFR 164.316(b)(2)(i) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Retention policy for required Security Rule documentation and historical copies
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-TEC-003 Collect evidence: Emergency access procedure,Task,High,hipaa,hipaa-technical,evidence-request,tec-003,,"HIPAA Guardian GAP-TEC-003: Evidence missing, high urgency
+Control: TEC-003, 45 CFR 164.312(a)(2)(ii) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Documented break-glass procedure and synthetic exercise
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-TEC-006 Collect evidence: Audit controls,Task,High,hipaa,hipaa-technical,evidence-request,tec-006,,"HIPAA Guardian GAP-TEC-006: Evidence missing, high urgency
+Control: TEC-006, 45 CFR 164.312(b) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Demonstrated ePHI activity logging, protections and review workflow
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-TEC-007 Collect evidence: Integrity safeguards,Task,High,hipaa,hipaa-technical,evidence-request,tec-007,,"HIPAA Guardian GAP-TEC-007: Evidence missing, high urgency
+Control: TEC-007, 45 CFR 164.312(c)(1) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Tests of ePHI modification permissions and integrity controls
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-TEC-008 Collect evidence: ePHI integrity authentication mechanism,Task,High,hipaa,hipaa-technical,evidence-request,tec-008,,"HIPAA Guardian GAP-TEC-008: Evidence missing, high urgency
+Control: TEC-008, 45 CFR 164.312(c)(2) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Tamper detection or documented reasonable alternative
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-TEC-011 Collect evidence: Transmission integrity controls,Task,High,hipaa,hipaa-technical,evidence-request,tec-011,,"HIPAA Guardian GAP-TEC-011: Evidence missing, high urgency
+Control: TEC-011, 45 CFR 164.312(e)(2)(i) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Message/request integrity checks and scope-based evaluation
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-004 Collect evidence: Sanction policy,Task,Medium,hipaa,hipaa-administrative,evidence-request,adm-004,,"HIPAA Guardian GAP-ADM-004: Evidence missing, medium urgency
+Control: ADM-004, 45 CFR 164.308(a)(1)(ii)(C) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Approved workforce sanctions policy and enforcement process
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-015 Collect evidence: Security awareness and training,Task,Medium,hipaa,hipaa-administrative,evidence-request,adm-015,,"HIPAA Guardian GAP-ADM-015: Evidence missing, medium urgency
+Control: ADM-015, 45 CFR 164.308(a)(5)(i) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Training program, completion evidence and role-appropriate material
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-016 Collect evidence: Security reminders,Task,Medium,hipaa,hipaa-administrative,evidence-request,adm-016,,"HIPAA Guardian GAP-ADM-016: Evidence missing, medium urgency
+Control: ADM-016, 45 CFR 164.308(a)(5)(ii)(A) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Periodic workforce security communications and records
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-026 Collect evidence: Contingency plan testing and revision,Task,Medium,hipaa,hipaa-administrative,evidence-request,adm-026,,"HIPAA Guardian GAP-ADM-026: Evidence missing, medium urgency
+Control: ADM-026, 45 CFR 164.308(a)(7)(ii)(D) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Exercise history, findings and updated plans
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ADM-027 Collect evidence: Application and data criticality analysis,Task,Medium,hipaa,hipaa-administrative,evidence-request,adm-027,,"HIPAA Guardian GAP-ADM-027: Evidence missing, medium urgency
+Control: ADM-027, 45 CFR 164.308(a)(7)(ii)(E) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Documented classification of critical apps and data
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-ENG-012 Collect evidence: Browser storage and frontend privacy,Task,Medium,hipaa,hipaa-engineering,evidence-request,eng-012,,"HIPAA Guardian GAP-ENG-012: Evidence missing, medium urgency
+Control: ENG-012, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate) (engineering)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Tests for PHI in browser storage, analytics, URL, source maps and cache
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-PHY-001 Collect evidence: Facility access controls,Task,Medium,hipaa,hipaa-physical,evidence-request,phy-001,,"HIPAA Guardian GAP-PHY-001: Evidence missing, medium urgency
+Control: PHY-001, 45 CFR 164.310(a)(1) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Hosting facility safeguards and contract/provider control evidence
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-PHY-002 Collect evidence: Facility contingency operations,Task,Medium,hipaa,hipaa-physical,evidence-request,phy-002,,"HIPAA Guardian GAP-PHY-002: Evidence missing, medium urgency
+Control: PHY-002, 45 CFR 164.310(a)(2)(i) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Physical recovery access procedures and responsibilities
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-PHY-003 Collect evidence: Facility security plan,Task,Medium,hipaa,hipaa-physical,evidence-request,phy-003,,"HIPAA Guardian GAP-PHY-003: Evidence missing, medium urgency
+Control: PHY-003, 45 CFR 164.310(a)(2)(ii) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Facility security controls and service provider assurances
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-PHY-004 Collect evidence: Facility access validation,Task,Medium,hipaa,hipaa-physical,evidence-request,phy-004,,"HIPAA Guardian GAP-PHY-004: Evidence missing, medium urgency
+Control: PHY-004, 45 CFR 164.310(a)(2)(iii) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Visitor/access records and access approval rules
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-PHY-006 Collect evidence: Workstation use,Task,Medium,hipaa,hipaa-physical,evidence-request,phy-006,,"HIPAA Guardian GAP-PHY-006: Evidence missing, medium urgency
+Control: PHY-006, 45 CFR 164.310(b) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Approved workstation-use practices for ePHI environments
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-PHY-007 Collect evidence: Workstation security,Task,Medium,hipaa,hipaa-physical,evidence-request,phy-007,,"HIPAA Guardian GAP-PHY-007: Evidence missing, medium urgency
+Control: PHY-007, 45 CFR 164.310(c) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Endpoint/physical workstation safeguards and policy evidence
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-PHY-011 Collect evidence: Device and media accountability,Task,Medium,hipaa,hipaa-physical,evidence-request,phy-011,,"HIPAA Guardian GAP-PHY-011: Evidence missing, medium urgency
+Control: PHY-011, 45 CFR 164.310(d)(2)(iii) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Hardware/media movement register and custodians
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-PHY-012 Collect evidence: Data backup before device movement,Task,Medium,hipaa,hipaa-physical,evidence-request,phy-012,,"HIPAA Guardian GAP-PHY-012: Evidence missing, medium urgency
+Control: PHY-012, 45 CFR 164.310(d)(2)(iv) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Backup procedures for applicable ePHI media movement
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-POL-004 Collect evidence: Availability of documentation,Task,Medium,hipaa,hipaa-documentation,evidence-request,pol-004,,"HIPAA Guardian GAP-POL-004: Evidence missing, medium urgency
+Control: POL-004, 45 CFR 164.316(b)(2)(ii) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Responsible personnel can obtain required documentation
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-POL-005 Collect evidence: Documentation updates,Task,Medium,hipaa,hipaa-documentation,evidence-request,pol-005,,"HIPAA Guardian GAP-POL-005: Evidence missing, medium urgency
+Control: POL-005, 45 CFR 164.316(b)(2)(iii) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Periodic and change-triggered review/approval history
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."
+GAP-PHY-005 Collect evidence: Facility maintenance records,Task,Low,hipaa,hipaa-physical,evidence-request,phy-005,,"HIPAA Guardian GAP-PHY-005: Evidence missing, low urgency
+Control: PHY-005, 45 CFR 164.310(a)(2)(iv) (regulatory)
+Observation: Evidence required
+Recommendation: Collect and validate required evidence
+Evidence to collect: Facility security maintenance procedure and records
+Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+Internal readiness item, not a legal determination."

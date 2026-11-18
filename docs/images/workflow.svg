@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 452" width="960" height="452" role="img" aria-labelledby="t d">
+  <title id="t">How a HIPAA Guardian audit runs</title>
+  <desc id="d">Eight steps: confirm boundary, map PHI flows, load 75 controls, collect offline signals, verify with synthetic data, build the evidence matrix, validate and report as PDF, Markdown, CSV and Jira, Notion or Slack tasks, then close and recheck in a loop.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#196b77"/>
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+      .h { font-size: 22px; font-weight: 700; fill: #0b0b0b; }
+      .s { font-size: 13px; fill: #52514e; }
+      .ct { font-size: 15.5px; font-weight: 700; fill: #0b0b0b; }
+      .cd { font-size: 12.5px; fill: #52514e; }
+      .n { font-size: 13px; font-weight: 700; fill: #ffffff; text-anchor: middle; }
+      .card { fill: #ffffff; stroke: #e1e0d9; }
+      .hl { fill: #ffffff; stroke: #196b77; stroke-width: 1.5; }
+      .ar { stroke: #196b77; stroke-width: 1.6; fill: none; }
+      .loop { font-size: 12.5px; fill: #196b77; text-anchor: middle; font-weight: 600; }
+    </style>
+  </defs>
+  <rect x="0.5" y="0.5" width="959" height="451" rx="16" fill="#fcfcfb" stroke="#e1e0d9"/>
+  <text class="h" x="36" y="52">How an audit runs</text>
+  <text class="s" x="36" y="76">Read-only by default. Every step leaves evidence a human can re-check.</text>
+
+  <g>
+    <rect class="card" x="36" y="104" width="204" height="120" rx="12"/>
+    <circle cx="66" cy="136" r="14" fill="#196b77"/><text class="n" x="66" y="140.5">1</text>
+    <text class="ct" x="90" y="141">Confirm boundary</text>
+    <text class="cd" x="56" y="176">Repo, roles, environments</text>
+    <text class="cd" x="56" y="196">No secrets or PHI read</text>
+  </g>
+  <g>
+    <rect class="card" x="264" y="104" width="204" height="120" rx="12"/>
+    <circle cx="294" cy="136" r="14" fill="#196b77"/><text class="n" x="294" y="140.5">2</text>
+    <text class="ct" x="318" y="141">Map PHI flows</text>
+    <text class="cd" x="284" y="176">Channel, auth, AI, stores,</text>
+    <text class="cd" x="284" y="196">vendors, logs, backups</text>
+  </g>
+  <g>
+    <rect class="card" x="492" y="104" width="204" height="120" rx="12"/>
+    <circle cx="522" cy="136" r="14" fill="#196b77"/><text class="n" x="522" y="140.5">3</text>
+    <text class="ct" x="546" y="141">Load 75 controls</text>
+    <text class="cd" x="512" y="176">63 mapped to 45 CFR 164</text>
+    <text class="cd" x="512" y="196">plus 12 engineering checks</text>
+  </g>
+  <g>
+    <rect class="card" x="720" y="104" width="204" height="120" rx="12"/>
+    <circle cx="750" cy="136" r="14" fill="#196b77"/><text class="n" x="750" y="140.5">4</text>
+    <text class="ct" x="774" y="141">Collect signals</text>
+    <text class="cd" x="740" y="176">Offline scanner, 13 rules</text>
+    <text class="cd" x="740" y="196">File and line only, no values</text>
+  </g>
+
+  <g>
+    <rect class="card" x="36" y="272" width="204" height="120" rx="12"/>
+    <circle cx="66" cy="304" r="14" fill="#196b77"/><text class="n" x="66" y="308.5">5</text>
+    <text class="ct" x="90" y="309">Verify</text>
+    <text class="cd" x="56" y="344">Synthetic tenants and</text>
+    <text class="cd" x="56" y="364">negative access tests</text>
+  </g>
+  <g>
+    <rect class="card" x="264" y="272" width="204" height="120" rx="12"/>
+    <circle cx="294" cy="304" r="14" fill="#196b77"/><text class="n" x="294" y="308.5">6</text>
+    <text class="ct" x="318" y="309">Evidence matrix</text>
+    <text class="cd" x="284" y="344">Status, reviewer and</text>
+    <text class="cd" x="284" y="364">dated proof per control</text>
+  </g>
+  <g>
+    <rect class="hl" x="492" y="272" width="204" height="120" rx="12"/>
+    <circle cx="522" cy="304" r="14" fill="#196b77"/><text class="n" x="522" y="308.5">7</text>
+    <text class="ct" x="546" y="309">Report and export</text>
+    <text class="cd" x="512" y="344">PDF, Markdown, CSV</text>
+    <text class="cd" x="512" y="364">Jira, Notion, Slack tasks</text>
+  </g>
+  <g>
+    <rect class="card" x="720" y="272" width="204" height="120" rx="12"/>
+    <circle cx="750" cy="304" r="14" fill="#196b77"/><text class="n" x="750" y="308.5">8</text>
+    <text class="ct" x="774" y="309">Close and recheck</text>
+    <text class="cd" x="740" y="344">Smallest safe fix, then</text>
+    <text class="cd" x="740" y="364">re-test and audit trail</text>
+  </g>
+
+  <path class="ar" d="M244 164H258" marker-end="url(#a)"/>
+  <path class="ar" d="M472 164H486" marker-end="url(#a)"/>
+  <path class="ar" d="M700 164H714" marker-end="url(#a)"/>
+  <path class="ar" d="M822 226V248H138V266" marker-end="url(#a)"/>
+  <path class="ar" d="M244 332H258" marker-end="url(#a)"/>
+  <path class="ar" d="M472 332H486" marker-end="url(#a)"/>
+  <path class="ar" d="M700 332H714" marker-end="url(#a)"/>
+  <path class="ar" d="M822 394V414H138V398" stroke-dasharray="5 5" marker-end="url(#a)"/>
+  <text class="loop" x="480" y="438">recheck loop: re-verify affected controls after every approved fix</text>
+</svg>

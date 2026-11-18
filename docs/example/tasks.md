@@ -1,0 +1,366 @@
+# HIPAA Guardian task list: Example Dental Cloud (synthetic)
+
+> Internal readiness item, not a legal determination. Generated 2026-11-18 from assessment.json. Check for patient data and secrets before sharing.
+
+## Critical (16)
+
+- [ ] **GAP-TEC-001** Fix: Access control enforcement (TEC-001, 45 CFR 164.312(a)(1))
+  - Recommendation: Scope the export query by the session's clinic_id and add a negative cross-tenant test.
+  - Done when: tests/test_exports.py::test_cross_tenant_export_denied returns 403 for synthetic clinic B
+  - Owner: Platform team · Due: 2026-12-05
+- [ ] **GAP-ENG-002** Fix: PHI-safe AI and tool invocation (ENG-002, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate))
+  - Recommendation: Resolve reminder recipients server-side from the verified patient record and reject model-supplied numbers.
+  - Done when: Inject a synthetic instruction to text a different number; the tool call must be refused
+  - Owner: AI team · Due: 2026-12-19
+- [ ] **GAP-ADM-002** Collect evidence: Risk analysis (ADM-002, 45 CFR 164.308(a)(1)(ii)(A))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Current organization-wide risk assessment covering all ePHI, not just source code
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-003** Collect evidence: Risk management (ADM-003, 45 CFR 164.308(a)(1)(ii)(B))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Risk register with selected safeguards, accountable owners and closure evidence
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-011** Collect evidence: Information access management (ADM-011, 45 CFR 164.308(a)(4)(i))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Access governance policy and patient/tenant authorization design
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-021** Collect evidence: Incident response and reporting (ADM-021, 45 CFR 164.308(a)(6)(ii))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Exercise/evidence of detection, response, mitigation and incident documentation
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-029** Collect evidence: Business associate subcontractor assurances (ADM-029, 45 CFR 164.308(b)(2)-(3))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Signed subcontractor BAAs or documented permitted arrangement and service scope
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-BRH-001** Collect evidence: Business associate breach notification (BRH-001, 45 CFR 164.410)
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Breach identification/escalation procedure, timing and contractual notification responsibilities
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ENG-001** Collect evidence: Cross-tenant authorization in all data planes (ENG-001, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Synthetic multi-tenant negative tests across queries, caches, search and queues
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-GEN-001** Collect evidence: Protect ePHI confidentiality, integrity and availability (GEN-001, 45 CFR 164.306(a))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Organization-wide asset and data inventory; documented protections and threat model
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ORG-001** Collect evidence: Business associate contractual protections (ORG-001, 45 CFR 164.314(a)(1)-(2))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Executed agreements with obligated vendors and documented applicability
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-PRV-001** Collect evidence: Permitted PHI uses and disclosures (PRV-001, 45 CFR 164.502(a))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Documented permitted uses, downstream disclosures and guardrails; legal review
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-PRV-002** Collect evidence: Business associate agreements for PHI (PRV-002, 45 CFR 164.504(e))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Signed customer BAAs and permitted-use restrictions; legal review
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-TEC-005** Collect evidence: Encryption and decryption (TEC-005, 45 CFR 164.312(a)(2)(iv))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Evidence of ePHI encryption at rest and key management; addressable evaluation
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-TEC-009** Collect evidence: Person or entity authentication (TEC-009, 45 CFR 164.312(d))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Verified identity at PHI lookup, workflow and tool-action boundaries
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-TEC-010** Collect evidence: Transmission security (TEC-010, 45 CFR 164.312(e)(1))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: TLS and protections for all ePHI transmitting services
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+
+## High (38)
+
+- [ ] **GAP-ENG-003** Fix: Log and telemetry minimization (ENG-003, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate))
+  - Recommendation: Log request IDs only, add a redaction filter, and assert in a test that no patient fields reach logs.
+  - Done when: Force a synthetic booking error and confirm the captured log event has no patient fields
+  - Owner: Backend team · Due: 2026-12-12
+- [ ] **GAP-ADM-023** Fix: Data backup plan (ADM-023, 45 CFR 164.308(a)(7)(ii)(A))
+  - Recommendation: Run and document a restore of a synthetic snapshot into an isolated environment.
+  - Done when: Fix verified by a re-run test and recorded in assessment.json
+  - Owner: Infrastructure · Due: 2027-01-15
+- [ ] **GAP-ADM-001** Collect evidence: Security management process (ADM-001, 45 CFR 164.308(a)(1)(i))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Approved security program; incident detection and remediation ownership
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-005** Collect evidence: Information system activity review (ADM-005, 45 CFR 164.308(a)(1)(ii)(D))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Regular audit/access/incident-log review policy and execution records
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-006** Collect evidence: Assigned security official (ADM-006, 45 CFR 164.308(a)(2))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Named accountable security official and assigned responsibilities
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-007** Collect evidence: Workforce security (ADM-007, 45 CFR 164.308(a)(3)(i))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Workforce access lifecycle policy and evidence of role restrictions
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-008** Collect evidence: Workforce authorization and supervision (ADM-008, 45 CFR 164.308(a)(3)(ii)(A))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Approval workflows and access supervision records
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-009** Collect evidence: Workforce clearance procedure (ADM-009, 45 CFR 164.308(a)(3)(ii)(B))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Background and suitability assessment process where appropriate
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-010** Collect evidence: Termination procedures (ADM-010, 45 CFR 164.308(a)(3)(ii)(C))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Revocation workflow with timestamps, identity/device/token coverage
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-013** Collect evidence: Access authorization (ADM-013, 45 CFR 164.308(a)(4)(ii)(B))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Least-privilege approval criteria and technical enforcement
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-014** Collect evidence: Access establishment and modification (ADM-014, 45 CFR 164.308(a)(4)(ii)(C))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Access request, review and privilege change history
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-017** Collect evidence: Protection from malicious software (ADM-017, 45 CFR 164.308(a)(5)(ii)(B))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Malware defenses, detections, reporting and response procedures
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-018** Collect evidence: Log-in monitoring (ADM-018, 45 CFR 164.308(a)(5)(ii)(C))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Failed login monitoring, anomaly alerts and review evidence
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-019** Collect evidence: Password management (ADM-019, 45 CFR 164.308(a)(5)(ii)(D))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Credential safeguards, MFA configuration and password governance
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-020** Collect evidence: Security incident procedures (ADM-020, 45 CFR 164.308(a)(6)(i))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Documented incident management process and responsible parties
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-022** Collect evidence: Contingency planning (ADM-022, 45 CFR 164.308(a)(7)(i))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Business continuity plan with ePHI dependencies and owners
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-024** Collect evidence: Disaster recovery plan (ADM-024, 45 CFR 164.308(a)(7)(ii)(B))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Recovery procedures and recovery test results
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-025** Collect evidence: Emergency-mode operation plan (ADM-025, 45 CFR 164.308(a)(7)(ii)(C))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Essential ePHI access/operations plan during disruption
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-028** Collect evidence: Periodic technical and nontechnical evaluation (ADM-028, 45 CFR 164.308(a)(8))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Dated internal or independent evaluations and follow-up actions
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ENG-004** Collect evidence: Channel-specific PHI gating (ENG-004, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Validation of patient identity, approved channel and routing safeguards
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ENG-005** Collect evidence: Credential exposure and rotation (ENG-005, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Code/config scan results and credential manager/rotation workflow
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ENG-006** Collect evidence: Vulnerability management pipeline (ENG-006, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Dependency/image/SAST scan evidence plus human triage and remediation tracking
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ENG-007** Collect evidence: Sensitive export and download protections (ENG-007, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Authorization, least privilege, link expiry, no PHI in URLs
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ENG-008** Collect evidence: LLM retrieval isolation and retention (ENG-008, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Per-tenant RAG filters, embeddings lifecycle, model prompt retention and provider subprocessor validation
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ENG-009** Collect evidence: Secure integration/webhook processing (ENG-009, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Signed webhooks, scoped credentials, replay defense and privacy review
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ENG-010** Collect evidence: Restore and incident exercises (ENG-010, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Synthetic backup restoration and controlled incident-response simulation
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ENG-011** Collect evidence: Safe AI side-effect boundaries (ENG-011, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Explicit approval, idempotency and least-privilege scope for CRM/PMS writes
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-PHY-008** Collect evidence: Device and media controls (PHY-008, 45 CFR 164.310(d)(1))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Lifecycle controls for ePHI-bearing media and devices
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-PHY-009** Collect evidence: Device and media disposal (PHY-009, 45 CFR 164.310(d)(2)(i))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Secure disposal procedures and verifiable practice
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-PHY-010** Collect evidence: Media reuse (PHY-010, 45 CFR 164.310(d)(2)(ii))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Secure data removal before hardware/media reuse
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-POL-001** Collect evidence: Implemented security policies and procedures (POL-001, 45 CFR 164.316(a))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Approved operational procedures and practice evidence
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-POL-002** Collect evidence: Document required policies and activities (POL-002, 45 CFR 164.316(b)(1))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Versioned written policies, procedures and documented assessments
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-POL-003** Collect evidence: Six-year security-document retention (POL-003, 45 CFR 164.316(b)(2)(i))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Retention policy for required Security Rule documentation and historical copies
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-TEC-003** Collect evidence: Emergency access procedure (TEC-003, 45 CFR 164.312(a)(2)(ii))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Documented break-glass procedure and synthetic exercise
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-TEC-006** Collect evidence: Audit controls (TEC-006, 45 CFR 164.312(b))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Demonstrated ePHI activity logging, protections and review workflow
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-TEC-007** Collect evidence: Integrity safeguards (TEC-007, 45 CFR 164.312(c)(1))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Tests of ePHI modification permissions and integrity controls
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-TEC-008** Collect evidence: ePHI integrity authentication mechanism (TEC-008, 45 CFR 164.312(c)(2))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Tamper detection or documented reasonable alternative
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-TEC-011** Collect evidence: Transmission integrity controls (TEC-011, 45 CFR 164.312(e)(2)(i))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Message/request integrity checks and scope-based evaluation
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+
+## Medium (16)
+
+- [ ] **GAP-ADM-004** Collect evidence: Sanction policy (ADM-004, 45 CFR 164.308(a)(1)(ii)(C))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Approved workforce sanctions policy and enforcement process
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-015** Collect evidence: Security awareness and training (ADM-015, 45 CFR 164.308(a)(5)(i))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Training program, completion evidence and role-appropriate material
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-016** Collect evidence: Security reminders (ADM-016, 45 CFR 164.308(a)(5)(ii)(A))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Periodic workforce security communications and records
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-026** Collect evidence: Contingency plan testing and revision (ADM-026, 45 CFR 164.308(a)(7)(ii)(D))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Exercise history, findings and updated plans
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ADM-027** Collect evidence: Application and data criticality analysis (ADM-027, 45 CFR 164.308(a)(7)(ii)(E))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Documented classification of critical apps and data
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-ENG-012** Collect evidence: Browser storage and frontend privacy (ENG-012, NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Tests for PHI in browser storage, analytics, URL, source maps and cache
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-PHY-001** Collect evidence: Facility access controls (PHY-001, 45 CFR 164.310(a)(1))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Hosting facility safeguards and contract/provider control evidence
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-PHY-002** Collect evidence: Facility contingency operations (PHY-002, 45 CFR 164.310(a)(2)(i))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Physical recovery access procedures and responsibilities
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-PHY-003** Collect evidence: Facility security plan (PHY-003, 45 CFR 164.310(a)(2)(ii))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Facility security controls and service provider assurances
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-PHY-004** Collect evidence: Facility access validation (PHY-004, 45 CFR 164.310(a)(2)(iii))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Visitor/access records and access approval rules
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-PHY-006** Collect evidence: Workstation use (PHY-006, 45 CFR 164.310(b))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Approved workstation-use practices for ePHI environments
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-PHY-007** Collect evidence: Workstation security (PHY-007, 45 CFR 164.310(c))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Endpoint/physical workstation safeguards and policy evidence
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-PHY-011** Collect evidence: Device and media accountability (PHY-011, 45 CFR 164.310(d)(2)(iii))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Hardware/media movement register and custodians
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-PHY-012** Collect evidence: Data backup before device movement (PHY-012, 45 CFR 164.310(d)(2)(iv))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Backup procedures for applicable ePHI media movement
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-POL-004** Collect evidence: Availability of documentation (POL-004, 45 CFR 164.316(b)(2)(ii))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Responsible personnel can obtain required documentation
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+- [ ] **GAP-POL-005** Collect evidence: Documentation updates (POL-005, 45 CFR 164.316(b)(2)(iii))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Periodic and change-triggered review/approval history
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set
+
+## Low (1)
+
+- [ ] **GAP-PHY-005** Collect evidence: Facility maintenance records (PHY-005, 45 CFR 164.310(a)(2)(iv))
+  - Recommendation: Collect and validate required evidence
+  - Evidence to collect: Facility security maintenance procedure and records
+  - Done when: Evidence reviewed and recorded with a named reviewer; control status re-validated
+  - Owner: Unassigned · Due: not set

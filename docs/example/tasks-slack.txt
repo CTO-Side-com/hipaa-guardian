@@ -1,0 +1,85 @@
+*HIPAA Guardian tasks: Example Dental Cloud (synthetic)*
+_71 open items: 4 confirmed gaps, 67 evidence requests. Internal readiness item, not a legal determination._
+
+*Critical (16)*
+• *GAP-TEC-001* Fix: Access control enforcement (Platform team, due 2026-12-05)
+      _Next:_ Scope the export query by the session's clinic_id and add a negative cross-tenant test.
+• *GAP-ENG-002* Fix: PHI-safe AI and tool invocation (AI team, due 2026-12-19)
+      _Next:_ Resolve reminder recipients server-side from the verified patient record and reject model-supplied numbers.
+• *GAP-ADM-002* Collect evidence: Risk analysis
+• *GAP-ADM-003* Collect evidence: Risk management
+• *GAP-ADM-011* Collect evidence: Information access management
+• *GAP-ADM-021* Collect evidence: Incident response and reporting
+• *GAP-ADM-029* Collect evidence: Business associate subcontractor assurances
+• *GAP-BRH-001* Collect evidence: Business associate breach notification
+• *GAP-ENG-001* Collect evidence: Cross-tenant authorization in all data planes
+• *GAP-GEN-001* Collect evidence: Protect ePHI confidentiality, integrity and availability
+• *GAP-ORG-001* Collect evidence: Business associate contractual protections
+• *GAP-PRV-001* Collect evidence: Permitted PHI uses and disclosures
+• *GAP-PRV-002* Collect evidence: Business associate agreements for PHI
+• *GAP-TEC-005* Collect evidence: Encryption and decryption
+• *GAP-TEC-009* Collect evidence: Person or entity authentication
+• *GAP-TEC-010* Collect evidence: Transmission security
+
+*High (38)*
+• *GAP-ENG-003* Fix: Log and telemetry minimization (Backend team, due 2026-12-12)
+      _Next:_ Log request IDs only, add a redaction filter, and assert in a test that no patient fields reach logs.
+• *GAP-ADM-023* Fix: Data backup plan (Infrastructure, due 2027-01-15)
+      _Next:_ Run and document a restore of a synthetic snapshot into an isolated environment.
+• *GAP-ADM-001* Collect evidence: Security management process
+• *GAP-ADM-005* Collect evidence: Information system activity review
+• *GAP-ADM-006* Collect evidence: Assigned security official
+• *GAP-ADM-007* Collect evidence: Workforce security
+• *GAP-ADM-008* Collect evidence: Workforce authorization and supervision
+• *GAP-ADM-009* Collect evidence: Workforce clearance procedure
+• *GAP-ADM-010* Collect evidence: Termination procedures
+• *GAP-ADM-013* Collect evidence: Access authorization
+• *GAP-ADM-014* Collect evidence: Access establishment and modification
+• *GAP-ADM-017* Collect evidence: Protection from malicious software
+• *GAP-ADM-018* Collect evidence: Log-in monitoring
+• *GAP-ADM-019* Collect evidence: Password management
+• *GAP-ADM-020* Collect evidence: Security incident procedures
+• *GAP-ADM-022* Collect evidence: Contingency planning
+• *GAP-ADM-024* Collect evidence: Disaster recovery plan
+• *GAP-ADM-025* Collect evidence: Emergency-mode operation plan
+• *GAP-ADM-028* Collect evidence: Periodic technical and nontechnical evaluation
+• *GAP-ENG-004* Collect evidence: Channel-specific PHI gating
+• *GAP-ENG-005* Collect evidence: Credential exposure and rotation
+• *GAP-ENG-006* Collect evidence: Vulnerability management pipeline
+• *GAP-ENG-007* Collect evidence: Sensitive export and download protections
+• *GAP-ENG-008* Collect evidence: LLM retrieval isolation and retention
+• *GAP-ENG-009* Collect evidence: Secure integration/webhook processing
+• *GAP-ENG-010* Collect evidence: Restore and incident exercises
+• *GAP-ENG-011* Collect evidence: Safe AI side-effect boundaries
+• *GAP-PHY-008* Collect evidence: Device and media controls
+• *GAP-PHY-009* Collect evidence: Device and media disposal
+• *GAP-PHY-010* Collect evidence: Media reuse
+• *GAP-POL-001* Collect evidence: Implemented security policies and procedures
+• *GAP-POL-002* Collect evidence: Document required policies and activities
+• *GAP-POL-003* Collect evidence: Six-year security-document retention
+• *GAP-TEC-003* Collect evidence: Emergency access procedure
+• *GAP-TEC-006* Collect evidence: Audit controls
+• *GAP-TEC-007* Collect evidence: Integrity safeguards
+• *GAP-TEC-008* Collect evidence: ePHI integrity authentication mechanism
+• *GAP-TEC-011* Collect evidence: Transmission integrity controls
+
+*Medium (16)*
+• *GAP-ADM-004* Collect evidence: Sanction policy
+• *GAP-ADM-015* Collect evidence: Security awareness and training
+• *GAP-ADM-016* Collect evidence: Security reminders
+• *GAP-ADM-026* Collect evidence: Contingency plan testing and revision
+• *GAP-ADM-027* Collect evidence: Application and data criticality analysis
+• *GAP-ENG-012* Collect evidence: Browser storage and frontend privacy
+• *GAP-PHY-001* Collect evidence: Facility access controls
+• *GAP-PHY-002* Collect evidence: Facility contingency operations
+• *GAP-PHY-003* Collect evidence: Facility security plan
+• *GAP-PHY-004* Collect evidence: Facility access validation
+• *GAP-PHY-006* Collect evidence: Workstation use
+• *GAP-PHY-007* Collect evidence: Workstation security
+• *GAP-PHY-011* Collect evidence: Device and media accountability
+• *GAP-PHY-012* Collect evidence: Data backup before device movement
+• *GAP-POL-004* Collect evidence: Availability of documentation
+• *GAP-POL-005* Collect evidence: Documentation updates
+
+*Low (1)*
+• *GAP-PHY-005* Collect evidence: Facility maintenance records

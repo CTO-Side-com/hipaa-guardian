@@ -1,0 +1,1353 @@
+{
+  "schema_version": "1.0",
+  "product": "Example Dental Cloud (synthetic)",
+  "environment": "staging (synthetic data)",
+  "created_on": "2026-11-18",
+  "assessor": "Synthetic Reviewer",
+  "legal_role": "Business associate (assumed, unverified)",
+  "in_scope_systems": [
+    "Web app and API (this repository)",
+    "AI scheduling assistant",
+    "Managed PostgreSQL"
+  ],
+  "excluded_systems": [
+    "Clinic practice-management systems",
+    "Corporate IT"
+  ],
+  "regulatory_status_checked_on": "2026-11-18",
+  "control_library_reviewed_as_of": "2026-11-18",
+  "notes": "Synthetic example for documentation. Every product name, path and finding is invented.",
+  "controls": [
+    {
+      "id": "GEN-001",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-001",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-002",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-003",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-004",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-005",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-006",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-007",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-008",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-009",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-010",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-011",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-012",
+      "status": "not_applicable",
+      "rationale": "The product is not a health care clearinghouse.",
+      "reviewer": "",
+      "approved_by": "Compliance lead (synthetic)",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-013",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-014",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-015",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-016",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-017",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-018",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-019",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-020",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-021",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-022",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-023",
+      "status": "partially_verified",
+      "rationale": "Nightly database snapshots exist (infra/db.tf:22), but no restore has ever been tested.",
+      "reviewer": "Synthetic Reviewer",
+      "approved_by": "",
+      "evidence": [
+        {
+          "type": "configuration",
+          "ref": "infra/db.tf:22",
+          "method": "Reviewed backup retention and schedule configuration",
+          "verified_on": "2026-11-18",
+          "reviewer": "Synthetic Reviewer"
+        }
+      ],
+      "risk": {
+        "severity": "high",
+        "observation": "Nightly database snapshots exist (infra/db.tf:22), but no restore has ever been tested.",
+        "impact": "",
+        "recommendation": "Run and document a restore of a synthetic snapshot into an isolated environment.",
+        "owner": "Infrastructure",
+        "due_date": "2027-01-15",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-024",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-025",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-026",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-027",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-028",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ADM-029",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "PHY-001",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "PHY-002",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "PHY-003",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "PHY-004",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "PHY-005",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "PHY-006",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "PHY-007",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "PHY-008",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "PHY-009",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "PHY-010",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "PHY-011",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "PHY-012",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "TEC-001",
+      "status": "failed",
+      "rationale": "The appointment export endpoint loads records by ID without a clinic filter (src/exports/views.py:41).",
+      "reviewer": "Synthetic Reviewer",
+      "approved_by": "",
+      "evidence": [
+        {
+          "type": "code",
+          "ref": "src/exports/views.py:41",
+          "method": "Code trace of export query and tenant resolution",
+          "verified_on": "2026-11-18",
+          "reviewer": "Synthetic Reviewer"
+        }
+      ],
+      "risk": {
+        "severity": "critical",
+        "observation": "The appointment export endpoint loads records by ID without a clinic filter (src/exports/views.py:41).",
+        "impact": "A user of clinic A can download clinic B's appointment export.",
+        "recommendation": "Scope the export query by the session's clinic_id and add a negative cross-tenant test.",
+        "owner": "Platform team",
+        "due_date": "2026-12-05",
+        "verification_test": "tests/test_exports.py::test_cross_tenant_export_denied returns 403 for synthetic clinic B"
+      }
+    },
+    {
+      "id": "TEC-002",
+      "status": "verified",
+      "rationale": "Ran unique-account and shared-login rejection tests",
+      "reviewer": "Synthetic Reviewer",
+      "approved_by": "",
+      "evidence": [
+        {
+          "type": "test",
+          "ref": "tests/test_auth.py:12",
+          "method": "Ran unique-account and shared-login rejection tests",
+          "verified_on": "2026-11-18",
+          "reviewer": "Synthetic Reviewer"
+        }
+      ],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "TEC-003",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "TEC-004",
+      "status": "verified",
+      "rationale": "Ran idle-timeout test against staging configuration",
+      "reviewer": "Synthetic Reviewer",
+      "approved_by": "",
+      "evidence": [
+        {
+          "type": "test",
+          "ref": "tests/test_sessions.py:30",
+          "method": "Ran idle-timeout test against staging configuration",
+          "verified_on": "2026-11-18",
+          "reviewer": "Synthetic Reviewer"
+        }
+      ],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "TEC-005",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "TEC-006",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "TEC-007",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "TEC-008",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "TEC-009",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "TEC-010",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "TEC-011",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "TEC-012",
+      "status": "verified",
+      "rationale": "Confirmed TLS 1.2+ policy and HTTP-to-HTTPS redirect",
+      "reviewer": "Synthetic Reviewer",
+      "approved_by": "",
+      "evidence": [
+        {
+          "type": "configuration",
+          "ref": "infra/load_balancer.tf:14",
+          "method": "Confirmed TLS 1.2+ policy and HTTP-to-HTTPS redirect",
+          "verified_on": "2026-11-18",
+          "reviewer": "Synthetic Reviewer"
+        }
+      ],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ORG-001",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "POL-001",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "POL-002",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "POL-003",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "POL-004",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "POL-005",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "PRV-001",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "PRV-002",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "BRH-001",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ENG-001",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ENG-002",
+      "status": "partially_verified",
+      "rationale": "Tool calls check tenant scope, but the send_reminder tool accepts any phone number the model returns.",
+      "reviewer": "Synthetic Reviewer",
+      "approved_by": "",
+      "evidence": [
+        {
+          "type": "test",
+          "ref": "tests/test_agent_tools.py:57",
+          "method": "Ran tenant-scope tests; reviewed tool argument validation",
+          "verified_on": "2026-11-18",
+          "reviewer": "Synthetic Reviewer"
+        }
+      ],
+      "risk": {
+        "severity": "critical",
+        "observation": "Tool calls check tenant scope, but the send_reminder tool accepts any phone number the model returns.",
+        "impact": "A prompt-injected conversation could send appointment details to an arbitrary number.",
+        "recommendation": "Resolve reminder recipients server-side from the verified patient record and reject model-supplied numbers.",
+        "owner": "AI team",
+        "due_date": "2026-12-19",
+        "verification_test": "Inject a synthetic instruction to text a different number; the tool call must be refused"
+      }
+    },
+    {
+      "id": "ENG-003",
+      "status": "failed",
+      "rationale": "Booking errors log the full request payload, including patient name and insurance ID, to the APM service (src/booking/handlers.py:118).",
+      "reviewer": "Synthetic Reviewer",
+      "approved_by": "",
+      "evidence": [
+        {
+          "type": "code",
+          "ref": "src/booking/handlers.py:118",
+          "method": "Code trace of exception logging path",
+          "verified_on": "2026-11-18",
+          "reviewer": "Synthetic Reviewer"
+        }
+      ],
+      "risk": {
+        "severity": "high",
+        "observation": "Booking errors log the full request payload, including patient name and insurance ID, to the APM service (src/booking/handlers.py:118).",
+        "impact": "PHI is copied to a telemetry vendor that has no BAA on record.",
+        "recommendation": "Log request IDs only, add a redaction filter, and assert in a test that no patient fields reach logs.",
+        "owner": "Backend team",
+        "due_date": "2026-12-12",
+        "verification_test": "Force a synthetic booking error and confirm the captured log event has no patient fields"
+      }
+    },
+    {
+      "id": "ENG-004",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ENG-005",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ENG-006",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ENG-007",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ENG-008",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ENG-009",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ENG-010",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ENG-011",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    },
+    {
+      "id": "ENG-012",
+      "status": "insufficient_evidence",
+      "rationale": "",
+      "reviewer": "",
+      "approved_by": "",
+      "evidence": [],
+      "risk": {
+        "severity": "",
+        "observation": "",
+        "impact": "",
+        "recommendation": "",
+        "owner": "",
+        "due_date": "",
+        "verification_test": ""
+      }
+    }
+  ]
+}
