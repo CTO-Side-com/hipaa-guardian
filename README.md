@@ -195,7 +195,7 @@ See the full [example PDF](docs/example/HIPAA-READINESS.pdf) and the [Markdown v
 | Jira | [`tasks-jira.csv`](docs/example/tasks-jira.csv) | **Filters → Search work items → ••• → Import work items from CSV.** Map the repeated `Labels` columns to Labels and set the date format to `yyyy-MM-dd`. Priorities use Jira's defaults (Highest, High, Medium, Low). |
 | Notion | [`tasks-notion.csv`](docs/example/tasks-notion.csv) | **Settings → Import → CSV** (or type `/csv` on a page). It becomes a database with one page per task. |
 | Slack Lists | [`tasks-slack-list.csv`](docs/example/tasks-slack-list.csv) | In Slack on desktop: **New → Import a CSV**. |
-| Slack message | [`tasks-slack.txt`](docs/example/tasks-slack.txt) | Paste into a channel, thread or canvas. Mentions are escaped, so a finding can never ping `@channel`. |
+| Slack message | [`tasks-slack.txt`](docs/example/tasks-slack.txt) | Paste into a channel, thread or canvas. `@`, `<` and `>` in findings become look-alike characters, so pasted text cannot ping `@channel` or form a link. |
 | Anywhere | [`tasks.md`](docs/example/tasks.md) | A `- [ ]` checklist grouped by urgency for GitHub issues and other Markdown tools. |
 
 CSV cells are guarded against formula injection, and contact details are redacted before anything is written.
@@ -224,7 +224,7 @@ docs/example/               synthetic example outputs
 ## Development
 
 ```bash
-python3 -m unittest discover -s skills/hipaa-guardian/tests -v   # 28 offline tests
+python3 -m unittest discover -s skills/hipaa-guardian/tests -v   # 36 offline tests
 python3 docs/example/make_example.py                             # rebuild the example outputs
 ```
 

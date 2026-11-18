@@ -35,6 +35,9 @@ def validate(data):
     if not isinstance(items, list):
         return errors + ['controls must be an array']
     ids = [x.get('id') for x in items if isinstance(x, dict)]
+    if any(not isinstance(i, str) for i in ids):
+        errors.append('Control id must be a string')
+        ids = [i for i in ids if isinstance(i, str)]
     if len(ids) != len(set(ids)):
         errors.append('Duplicate control ids')
     for missing in sorted(expected - set(ids)):
@@ -85,6 +88,10 @@ def validate(data):
         severity = risk.get('severity', '')
         if severity and severity not in VALID_SEVERITIES:
             errors.append(f'{cid}: invalid risk severity')
+        due = risk.get('due_date', '')
+        if due and not calendar_date(due):
+            # Trackers import dates in one configured format; ISO keeps Jira, Notion and Slack consistent.
+            errors.append(f'{cid}: risk.due_date must be YYYY-MM-DD')
         if status in ('failed', 'partially_verified'):
             for field in ('observation', 'recommendation'):
                 if not nonempty(risk.get(field)):

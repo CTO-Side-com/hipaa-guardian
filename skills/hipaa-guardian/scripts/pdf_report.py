@@ -139,10 +139,16 @@ class Report:
                 x += width
             self.y += height
 
+        # A row is drawn whole, so a cell taller than a page is cut rather than run off the page.
+        max_lines = int((BOTTOM - TOP - leading - 4 * pad) // leading)
+
+        def fit(lines):
+            return lines if len(lines) <= max_lines else lines[:max_lines - 1] + ['[continues in assessment.json]']
+
         self.need(3 * leading + 4 * pad)
         header()
         for row in rows:
-            cells = [cell if isinstance(cell, tuple) else wrap(cell, size, width - 2 * pad)
+            cells = [cell if isinstance(cell, tuple) else fit(wrap(cell, size, width - 2 * pad))
                      for (_, width), cell in zip(columns, row)]
             height = max(1 if isinstance(c, tuple) else len(c) for c in cells) * leading + 2 * pad
             if self.y + height > BOTTOM:

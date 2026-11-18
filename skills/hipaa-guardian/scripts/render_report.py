@@ -37,7 +37,7 @@ def summarize(assessment):
         definition = controls[cid]
         by_area[definition['area']][item['status']] += 1
         if item['status'] not in ('verified', 'not_applicable'):
-            risk = item['risk']
+            risk = item.get('risk') or {}
             risk_items.append({
                 'id': 'GAP-' + cid,
                 'control_id': cid,

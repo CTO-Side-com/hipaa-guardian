@@ -15,7 +15,9 @@ from common import write_json
 from init_assessment import create
 from export_tasks import FORMATS, build_tasks, write_exports
 from pdf_report import render_pdf
+from pdf_writer import encode
 from render_report import summarize
+from validate_assessment import validate
 
 FORMULA_START = ('=', '+', '-', '@', '\t', '\r')
 
@@ -34,8 +36,8 @@ def synthetic_assessment():
     first['risk'].update({
         'severity': 'critical',
         'observation': '=HYPERLINK("http://attacker.invalid") contact jane.doe@clinic.example or +1 (212) 555-1234',
-        'recommendation': 'Scope export queries by tenant <!channel> & verify',
-        'owner': 'Platform team', 'due_date': '2026-12-01',
+        'recommendation': '+Scope export queries by tenant <!channel> @here & verify',
+        'owner': '@ops-team', 'due_date': '2026-12-01',
         'verification_test': 'Cross-tenant export returns 403 for synthetic clinic B',
     })
     second.update({
@@ -91,6 +93,45 @@ class PdfReportTests(unittest.TestCase):
         doc['product'] = 'Clinic کلینیک \U0001F9B7 (\\) test'
         data = render_pdf(doc)
         self.assertTrue(data.startswith(b'%PDF'))
+        self.assertIn(b'\\(\\\\\\) test', b'\n'.join(pdf_streams(data)))
+
+    def test_delete_character_is_not_drawn_as_a_glyph(self):
+        self.assertEqual(encode('a\x7fb'), b'a b')
+
+    def test_wrap_is_linear_on_long_tokens_and_terminates_on_bad_widths(self):
+        script = (
+            'import sys, time; sys.path.insert(0, sys.argv[1]); from pdf_writer import wrap\n'
+            'start = time.time(); lines = wrap("a" * 20000, 9, 300)\n'
+            'assert "".join(lines) == "a" * 20000\n'
+            'assert time.time() - start < 1.5, time.time() - start\n'
+            'for width in (0, -1): wrap("abc def", 9, width)\n'
+        )
+        try:
+            result = subprocess.run([sys.executable, '-c', script, str(SCRIPTS)], capture_output=True, text=True, timeout=10)
+        except subprocess.TimeoutExpired:
+            self.fail('wrap() did not terminate')
+        self.assertEqual(result.returncode, 0, result.stderr)
+
+    def test_tall_table_rows_stay_on_the_page(self):
+        doc = synthetic_assessment()
+        doc['in_scope_systems'] = [f'Service number {i} with a fairly long descriptive name' for i in range(200)]
+        for stream in pdf_streams(render_pdf(doc)):
+            for y in re.findall(rb'(-?[\d.]+) Td', stream):
+                self.assertGreaterEqual(float(y), 25, 'text drawn below the footer or off the page')
+
+    def test_renderers_survive_shapes_the_validator_accepts(self):
+        doc = synthetic_assessment()
+        del doc['controls'][5]['risk']
+        doc['product'] = 'Clinic \ud800 Cloud'
+        self.assertEqual([], validate(doc))
+        with tempfile.TemporaryDirectory() as root:
+            write_json(Path(root) / 'a.json', doc)
+            for script, extra in (('render_report.py', ['--pdf']), ('export_tasks.py', [])):
+                result = subprocess.run(
+                    [sys.executable, str(SCRIPTS / script), '--assessment', str(Path(root) / 'a.json'), '--out', root, *extra],
+                    capture_output=True, text=True,
+                )
+                self.assertEqual(result.returncode, 0, result.stderr[-600:])
 
     def test_render_report_cli_writes_pdf_alongside_markdown(self):
         with tempfile.TemporaryDirectory() as root:
@@ -103,6 +144,10 @@ class PdfReportTests(unittest.TestCase):
             )
             self.assertTrue((base / 'out' / 'HIPAA-READINESS.md').exists())
             self.assertTrue((base / 'out' / 'HIPAA-READINESS.pdf').read_bytes().startswith(b'%PDF'))
+            with (base / 'out' / 'risk-register.csv').open(newline='', encoding='utf-8') as f:
+                for row in csv.reader(f):
+                    for cell in row:
+                        self.assertFalse(cell.startswith(FORMULA_START), cell[:40])
 
 
 class TaskExportTests(unittest.TestCase):
@@ -163,11 +208,12 @@ class TaskExportTests(unittest.TestCase):
             self.assertNotIn('jane.doe', text, path.name)
             self.assertNotIn('555-1234', text, path.name)
 
-    def test_slack_message_escapes_mentions_and_control_characters(self):
+    def test_slack_message_cannot_form_mentions_or_links_when_pasted_or_posted(self):
         text = (self.out / 'tasks-slack.txt').read_text(encoding='utf-8')
-        self.assertNotIn('<!channel>', text)
-        self.assertIn('&lt;!channel&gt;', text)
-        self.assertIn('&amp;', text)
+        self.assertNotIn('<', text)
+        self.assertNotIn('@', text)
+        self.assertNotIn('&lt;', text)  # pasted text is not entity-decoded, so entities would show literally
+        self.assertIn('tenant ‹!channel› ＠here & verify', text)
 
     def test_markdown_checklist_uses_unchecked_boxes(self):
         text = (self.out / 'tasks.md').read_text(encoding='utf-8')

@@ -85,6 +85,49 @@ class GuardianTests(unittest.TestCase):
         self.assertIn('[REDACTED_IDENTIFIER]', safe_text('123-45-6789'))
         self.assertIn('[REDACTED_NUMBER]', safe_text('+1 (212) 555-1234'))
 
+    def test_redaction_scrubs_before_truncating(self):
+        self.assertNotIn('jane.doe@', redact('x' * 790 + ' jane.doe@clinic.example', 800))
+        self.assertNotIn('123-45-67', redact('x' * 790 + ' 123-45-6789', 800))
+        self.assertNotIn('212555123', redact('x' * 1490 + ' 2125551234567', 1500))
+        self.assertEqual(len(redact('y' * 5000, 800)), 800)
+
+    def test_validator_reports_odd_shapes_instead_of_crashing(self):
+        doc = create('Synthetic Health App')
+        doc['controls'][0]['id'] = ['ADM-001']
+        errors = validate(doc)
+        self.assertTrue(any('id must be a string' in e for e in errors), errors)
+
+    def test_due_dates_must_be_iso_dates(self):
+        doc = create('Synthetic Health App')
+        doc['controls'][0]['risk']['due_date'] = '12/01/2026'
+        self.assertTrue(any('due_date' in e for e in validate(doc)))
+        doc['controls'][0]['risk']['due_date'] = '2026-12-01'
+        self.assertEqual([], validate(doc))
+
+    def test_scan_rules_match_quoted_and_camelcase_keys_but_not_xml_namespaces(self):
+        risky = {
+            'stack.yaml': 'StorageEncrypted: false\nPubliclyAccessible: true\nBlockPublicAcls: false\n',
+            'settings.json': '{"encrypted": false, "x": 1}\n{"publicly_accessible": true}\n',
+            'client.py': "BASE = 'http://api.example.hospital.com/v1'\n",
+        }
+        safe = {
+            'pom.xml': '<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\n',
+            'beans.xml': '<beans xmlns="http://www.springframework.org/schema/beans">\n',
+            'docs.py': "URL = 'http://api.example/v1'\n",
+        }
+        with tempfile.TemporaryDirectory() as root:
+            base = Path(root)
+            for name, text in {**risky, **safe}.items():
+                (base / name).write_text(text)
+            findings = scan(base)['findings']
+        by_file = {}
+        for f in findings:
+            by_file.setdefault(f['file'], set()).add(f['line'])
+        self.assertEqual(by_file.get('stack.yaml'), {1, 2, 3})
+        self.assertEqual(by_file.get('settings.json'), {1, 2})
+        self.assertEqual(by_file.get('client.py'), {1})
+        self.assertFalse(set(safe) & set(by_file), by_file)
+
     def test_redact_keeps_pipes_for_non_markdown_outputs(self):
         self.assertEqual(redact('a | b'), 'a | b')
         self.assertEqual(safe_text('a | b'), 'a \\| b')

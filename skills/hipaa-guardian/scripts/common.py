@@ -41,7 +41,9 @@ def write_json(path, document, overwrite=True):
 def redact(value, limit=800):
     """Basic scrubbing for every output format, NOT a substitute for reviewer checking for PHI."""
     import re
-    text = str(value or '')[:limit]
+    # Scrub before cutting, so an identifier straddling the limit cannot leak a prefix; lone surrogates
+    # from JSON escapes would otherwise crash UTF-8 and PDF writers downstream.
+    text = str(value or '').encode('utf-8', 'replace').decode('utf-8')
     text = re.sub(r'\b[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}\b', '[REDACTED_EMAIL]', text)
     text = re.sub(r'\b\d{3}-\d{2}-\d{4}\b', '[REDACTED_IDENTIFIER]', text)
     def hide_long_number(match):
@@ -49,7 +51,7 @@ def redact(value, limit=800):
         digits = re.sub(r'\D', '', candidate)
         return '[REDACTED_NUMBER]' if len(digits) >= 10 else candidate
     text = re.sub(r'(?<!\w)\+?\d[\d .()-]{8,}\d\b', hide_long_number, text)
-    return text.replace('\n', ' ').replace('\r', ' ')
+    return text.replace('\n', ' ').replace('\r', ' ')[:limit]
 
 
 def output_path(directory, name):

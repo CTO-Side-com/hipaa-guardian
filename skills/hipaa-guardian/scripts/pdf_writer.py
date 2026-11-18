@@ -36,7 +36,7 @@ _KAPPA = 0.5523  # Bezier control-point ratio for quarter circles
 
 def encode(text):
     """Map text to WinAnsi bytes; unsupported characters become '?' and control characters spaces."""
-    clean = ''.join(' ' if ord(ch) < 32 else ch for ch in str(text))
+    clean = ''.join(' ' if ord(ch) < 32 or ord(ch) == 127 else ch for ch in str(text))
     return clean.encode('cp1252', errors='replace')
 
 
@@ -63,10 +63,15 @@ def wrap(text, size, width, bold=False):
                 continue
             if line:
                 lines.append(line)
-            while text_width(word, size, bold) > width:
-                cut = len(word)
-                while cut > 1 and text_width(word[:cut], size, bold) > width:
-                    cut -= 1
+            while word and text_width(word, size, bold) > width:
+                # Take at least one character per line so tiny or negative widths still terminate.
+                cut, used = 0, 0.0
+                for ch in word:
+                    step = text_width(ch, size, bold)
+                    if cut and used + step > width:
+                        break
+                    used += step
+                    cut += 1
                 lines.append(word[:cut])
                 word = word[cut:]
             line = word
@@ -110,7 +115,7 @@ def _info_string(text):
     text = str(text)
     if all(32 <= ord(ch) < 127 for ch in text):
         return _literal(text.encode('ascii'))
-    return '<FEFF' + text.encode('utf-16-be').hex().upper() + '>'
+    return '<FEFF' + text.encode('utf-16-be', 'replace').hex().upper() + '>'
 
 
 class PDF:

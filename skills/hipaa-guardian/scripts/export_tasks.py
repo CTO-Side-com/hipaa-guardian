@@ -108,8 +108,9 @@ def write_slack_list(tasks, path):
 
 
 def _slack_escape(value):
-    # Slack treats <...> as links and mentions (<!channel>), so finding text must never form one.
-    return str(value).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+    # The file is pasted into the composer (which ignores &lt; entities but pings on a typed @channel)
+    # or posted through a webhook (which links <...>). Look-alike characters are safe on both paths.
+    return str(value).replace('<', '‹').replace('>', '›').replace('@', '＠')
 
 
 def _grouped(tasks):
