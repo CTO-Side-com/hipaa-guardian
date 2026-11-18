@@ -9,8 +9,11 @@ permissions:
 
 jobs:
   unit:
-    runs-on: ubuntu-latest
+    # Pinned: setup-python publishes no Python 3.9 build for ubuntu-latest (26.04), and the
+    # README promises 3.9+.
+    runs-on: ubuntu-24.04
     strategy:
+      fail-fast: false
       matrix:
         python: ["3.9", "3.13"]
     steps:
