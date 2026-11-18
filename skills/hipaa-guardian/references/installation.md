@@ -5,13 +5,13 @@ https://github.com/CTO-Side-com/hipaa-guardian#install
 
 Quick reference (the skill folder is `skills/hipaa-guardian` in the repository):
 
-| Agent | Project scope | User scope |
-|---|---|---|
-| Claude Code | `.claude/skills/hipaa-guardian` | `~/.claude/skills/hipaa-guardian` |
-| GitHub Copilot | `.github/skills/hipaa-guardian` | `~/.copilot/skills/hipaa-guardian` |
-| Cursor | `.cursor/skills/hipaa-guardian` | `~/.cursor/skills/hipaa-guardian` |
+With the GitHub CLI (2.90+): `gh skill install CTO-Side-com/hipaa-guardian hipaa-guardian --agent claude-code` (or `github-copilot`, `cursor`), adding `--scope user` for a personal install. It installs to:
 
-With the GitHub CLI (2.90+): `gh skill install CTO-Side-com/hipaa-guardian hipaa-guardian --agent claude-code` (or `github-copilot`, `cursor`), adding `--scope user` for a personal install.
+| Agent | Project scope (`gh skill`) | Project scope (manual copy) | User scope |
+|---|---|---|---|
+| Claude Code | `.claude/skills/hipaa-guardian` | `.claude/skills/hipaa-guardian` | `~/.claude/skills/hipaa-guardian` (`$CLAUDE_CONFIG_DIR/skills` when set) |
+| GitHub Copilot | `.agents/skills/hipaa-guardian` | `.github/skills/hipaa-guardian` | `~/.copilot/skills/hipaa-guardian` |
+| Cursor | `.agents/skills/hipaa-guardian` | `.cursor/skills/hipaa-guardian` | `~/.cursor/skills/hipaa-guardian` |
 
 Before running scripts, decide where PRIVATE evidence artifacts will be stored; prefer `hipaa-output/` and add it to the repository `.gitignore`. Authorize only read-only static scans at first. Avoid real patient data, production credentials, uploading source to unfamiliar scanning services, and auto-fixing code.
 

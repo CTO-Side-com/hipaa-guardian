@@ -2,9 +2,9 @@
 status: active
 phase: Public release v1.0
 next: Final whole-branch review, then create CTO-Side-com/hipaa-guardian and push
-tests: unit 28/28 on Python 3.9, 3.10, 3.13 (2026-11-18)
+tests: unit 36/36 on Python 3.9, 3.10, 3.13 (2026-11-18)
 hosting: github:CTO-Side-com/hipaa-guardian
-updated: 2026-11-18 19:41 +0400
+updated: 2026-11-18 19:53 +0400
 ---
 
 # HIPAA Guardian: handoff
@@ -37,8 +37,8 @@ updated: 2026-11-18 19:41 +0400
 
 ## Next steps
 
-1. Final whole-branch review (general-purpose agent, high effort; output-redaction and CSV-injection code is security-relevant). Report path: `/private/tmp/claude-501/-Users-rezasahebozamani-Projects-Skills-hipaa-guardian/b8f87a40-d73f-4065-b848-de6b2e45b0d9/scratchpad/review/report.md`; plant worktree `~/Developer/hipaa-guardian-review-plants` (throwaway, delete after).
-2. Fix confirmed findings, re-run tests.
+1. Done 19:49: final review returned no critical/high. Plants a/b/c all caught; worktree removed.
+2. Done 19:53: all findings fixed with 8 new tests, each watched failing first (redact-before-truncate, Slack paste mentions, tall table rows, wrap() speed and negative width, validator gaps incl. due_date format, scanner CamelCase/JSON keys and xmlns, risk-register CSV formula check, installation.md paths, DEL char, SKILL.md report description).
 3. `gh repo create CTO-Side-com/hipaa-guardian --public`, push `main`.
 4. Verify remote installs: `/plugin marketplace add CTO-Side-com/hipaa-guardian`, `gh skill install CTO-Side-com/hipaa-guardian hipaa-guardian`, git clone one-liner; confirm the CI run is green.
 

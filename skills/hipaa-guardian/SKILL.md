@@ -64,8 +64,8 @@ Create under a user-approved local folder, normally `hipaa-output/` (do not comm
 
 - `assessment.json`: all controls, statuses, reviewer, citations, evidence references, applicability and remediation.
 - `scanner-findings.json`: heuristic leads, paths and line numbers only; no matching text or secrets.
-- `HIPAA-READINESS.md`: executive summary, scope, confirmed gaps, unverified controls, vendor/BAA blockers and evidence requirements.
-- `HIPAA-READINESS.pdf` (with `--pdf`): the same assessment as a paginated report with the not-a-certificate notice on every page.
+- `HIPAA-READINESS.md`: evidence coverage by area, confirmed gaps, unverified controls, outstanding scope and organizational checks, and sources. Vendor/BAA blockers belong in `VENDOR-BAA-REGISTER.md`.
+- `HIPAA-READINESS.pdf` (with `--pdf`): the full report (cover and scope, executive summary with coverage charts, gap cards, remediation plan, evidence requests per unverified control, control matrix) with the not-a-certificate notice on every page.
 - `risk-register.csv`: owner-oriented backlog with priorities and control IDs.
 - `tasks-jira.csv`, `tasks-notion.csv`, `tasks-slack-list.csv`, `tasks-slack.txt`, `tasks.md`: the open items as import-ready tasks. Tell the user how to import them: Jira via *Filters > Search work items > ••• > Import work items from CSV* (map the repeated `Labels` columns to Labels; set the wizard's date format to `yyyy-MM-dd`), Notion via *Settings > Import > CSV*, Slack Lists via *New > Import a CSV* on desktop, or paste `tasks-slack.txt` into a channel or canvas.
 - `PHI-DATA-FLOWS.md`: narrative/data-flow map with trust boundaries, unverified edges and processors.
