@@ -1,0 +1,26 @@
+{
+  "name": "ctoside",
+  "owner": {
+    "name": "CTOside"
+  },
+  "metadata": {
+    "description": "Agent skills by CTOside (https://ctoside.com)",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "hipaa-guardian",
+      "source": "./",
+      "description": "Evidence-first HIPAA Security Rule readiness audits for healthcare SaaS: PHI data-flow mapping, 75-control evidence matrix, offline scanning, PDF report and Jira/Notion/Slack task exports.",
+      "version": "1.0.0",
+      "author": {
+        "name": "CTOside"
+      },
+      "homepage": "https://github.com/CTO-Side-com/hipaa-guardian",
+      "repository": "https://github.com/CTO-Side-com/hipaa-guardian",
+      "license": "MIT",
+      "keywords": ["hipaa", "healthcare", "compliance", "security", "audit", "phi"],
+      "category": "security"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+# Private audit artifacts: never publish real assessments
+hipaa-output/
+
+# Local tooling state
+.remember/
+__pycache__/
+*.pyc
+.DS_Store
