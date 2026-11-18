@@ -1,0 +1,1064 @@
+{
+  "schema_version": "1.0",
+  "reviewed_as_of": "2026-11-18",
+  "notice": "Verify current regulatory text and date. Controls are assessment aids, not a legal certification or a substitute for a full enterprise Security Risk Analysis.",
+  "controls": [
+    {
+      "id": "GEN-001",
+      "title": "Protect ePHI confidentiality, integrity and availability",
+      "area": "general",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.306(a)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.306",
+      "priority_hint": "critical",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Organization-wide asset and data inventory",
+        "documented protections and threat model"
+      ]
+    },
+    {
+      "id": "ADM-001",
+      "title": "Security management process",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.308(a)(1)(i)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "high",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Approved security program",
+        "incident detection and remediation ownership"
+      ]
+    },
+    {
+      "id": "ADM-002",
+      "title": "Risk analysis",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "required",
+      "authority": "45 CFR 164.308(a)(1)(ii)(A)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "critical",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Current organization-wide risk assessment covering all ePHI, not just source code"
+      ]
+    },
+    {
+      "id": "ADM-003",
+      "title": "Risk management",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "required",
+      "authority": "45 CFR 164.308(a)(1)(ii)(B)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "critical",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Risk register with selected safeguards, accountable owners and closure evidence"
+      ]
+    },
+    {
+      "id": "ADM-004",
+      "title": "Sanction policy",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "required",
+      "authority": "45 CFR 164.308(a)(1)(ii)(C)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "medium",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Approved workforce sanctions policy and enforcement process"
+      ]
+    },
+    {
+      "id": "ADM-005",
+      "title": "Information system activity review",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "required",
+      "authority": "45 CFR 164.308(a)(1)(ii)(D)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "high",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Regular audit/access/incident-log review policy and execution records"
+      ]
+    },
+    {
+      "id": "ADM-006",
+      "title": "Assigned security official",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.308(a)(2)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "high",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Named accountable security official and assigned responsibilities"
+      ]
+    },
+    {
+      "id": "ADM-007",
+      "title": "Workforce security",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.308(a)(3)(i)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "high",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Workforce access lifecycle policy and evidence of role restrictions"
+      ]
+    },
+    {
+      "id": "ADM-008",
+      "title": "Workforce authorization and supervision",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.308(a)(3)(ii)(A)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "high",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Approval workflows and access supervision records"
+      ]
+    },
+    {
+      "id": "ADM-009",
+      "title": "Workforce clearance procedure",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.308(a)(3)(ii)(B)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "high",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Background and suitability assessment process where appropriate"
+      ]
+    },
+    {
+      "id": "ADM-010",
+      "title": "Termination procedures",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.308(a)(3)(ii)(C)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "high",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Revocation workflow with timestamps, identity/device/token coverage"
+      ]
+    },
+    {
+      "id": "ADM-011",
+      "title": "Information access management",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.308(a)(4)(i)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "critical",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Access governance policy and patient/tenant authorization design"
+      ]
+    },
+    {
+      "id": "ADM-012",
+      "title": "Isolating clearinghouse functions where applicable",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "required",
+      "authority": "45 CFR 164.308(a)(4)(ii)(A)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "low",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Applicability rationale or clearinghouse organization isolation evidence"
+      ]
+    },
+    {
+      "id": "ADM-013",
+      "title": "Access authorization",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.308(a)(4)(ii)(B)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "high",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Least-privilege approval criteria and technical enforcement"
+      ]
+    },
+    {
+      "id": "ADM-014",
+      "title": "Access establishment and modification",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.308(a)(4)(ii)(C)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "high",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Access request, review and privilege change history"
+      ]
+    },
+    {
+      "id": "ADM-015",
+      "title": "Security awareness and training",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.308(a)(5)(i)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "medium",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Training program, completion evidence and role-appropriate material"
+      ]
+    },
+    {
+      "id": "ADM-016",
+      "title": "Security reminders",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.308(a)(5)(ii)(A)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "medium",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Periodic workforce security communications and records"
+      ]
+    },
+    {
+      "id": "ADM-017",
+      "title": "Protection from malicious software",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.308(a)(5)(ii)(B)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "high",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Malware defenses, detections, reporting and response procedures"
+      ]
+    },
+    {
+      "id": "ADM-018",
+      "title": "Log-in monitoring",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.308(a)(5)(ii)(C)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "high",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Failed login monitoring, anomaly alerts and review evidence"
+      ]
+    },
+    {
+      "id": "ADM-019",
+      "title": "Password management",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.308(a)(5)(ii)(D)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "high",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Credential safeguards, MFA configuration and password governance"
+      ]
+    },
+    {
+      "id": "ADM-020",
+      "title": "Security incident procedures",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.308(a)(6)(i)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "high",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Documented incident management process and responsible parties"
+      ]
+    },
+    {
+      "id": "ADM-021",
+      "title": "Incident response and reporting",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "required",
+      "authority": "45 CFR 164.308(a)(6)(ii)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "critical",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Exercise/evidence of detection, response, mitigation and incident documentation"
+      ]
+    },
+    {
+      "id": "ADM-022",
+      "title": "Contingency planning",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.308(a)(7)(i)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "high",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Business continuity plan with ePHI dependencies and owners"
+      ]
+    },
+    {
+      "id": "ADM-023",
+      "title": "Data backup plan",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "required",
+      "authority": "45 CFR 164.308(a)(7)(ii)(A)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "high",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Backup configuration, validation and retrievable ePHI copy procedures"
+      ]
+    },
+    {
+      "id": "ADM-024",
+      "title": "Disaster recovery plan",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "required",
+      "authority": "45 CFR 164.308(a)(7)(ii)(B)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "high",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Recovery procedures and recovery test results"
+      ]
+    },
+    {
+      "id": "ADM-025",
+      "title": "Emergency-mode operation plan",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "required",
+      "authority": "45 CFR 164.308(a)(7)(ii)(C)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "high",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Essential ePHI access/operations plan during disruption"
+      ]
+    },
+    {
+      "id": "ADM-026",
+      "title": "Contingency plan testing and revision",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.308(a)(7)(ii)(D)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "medium",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Exercise history, findings and updated plans"
+      ]
+    },
+    {
+      "id": "ADM-027",
+      "title": "Application and data criticality analysis",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.308(a)(7)(ii)(E)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "medium",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Documented classification of critical apps and data"
+      ]
+    },
+    {
+      "id": "ADM-028",
+      "title": "Periodic technical and nontechnical evaluation",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.308(a)(8)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "high",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Dated internal or independent evaluations and follow-up actions"
+      ]
+    },
+    {
+      "id": "ADM-029",
+      "title": "Business associate subcontractor assurances",
+      "area": "administrative",
+      "source_type": "regulatory",
+      "kind": "required",
+      "authority": "45 CFR 164.308(b)(2)-(3)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308",
+      "priority_hint": "critical",
+      "scope": "mixed",
+      "evidence_examples": [
+        "Signed subcontractor BAAs or documented permitted arrangement and service scope"
+      ]
+    },
+    {
+      "id": "PHY-001",
+      "title": "Facility access controls",
+      "area": "physical",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.310(a)(1)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.310",
+      "priority_hint": "medium",
+      "scope": "operational",
+      "evidence_examples": [
+        "Hosting facility safeguards and contract/provider control evidence"
+      ]
+    },
+    {
+      "id": "PHY-002",
+      "title": "Facility contingency operations",
+      "area": "physical",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.310(a)(2)(i)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.310",
+      "priority_hint": "medium",
+      "scope": "operational",
+      "evidence_examples": [
+        "Physical recovery access procedures and responsibilities"
+      ]
+    },
+    {
+      "id": "PHY-003",
+      "title": "Facility security plan",
+      "area": "physical",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.310(a)(2)(ii)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.310",
+      "priority_hint": "medium",
+      "scope": "operational",
+      "evidence_examples": [
+        "Facility security controls and service provider assurances"
+      ]
+    },
+    {
+      "id": "PHY-004",
+      "title": "Facility access validation",
+      "area": "physical",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.310(a)(2)(iii)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.310",
+      "priority_hint": "medium",
+      "scope": "operational",
+      "evidence_examples": [
+        "Visitor/access records and access approval rules"
+      ]
+    },
+    {
+      "id": "PHY-005",
+      "title": "Facility maintenance records",
+      "area": "physical",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.310(a)(2)(iv)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.310",
+      "priority_hint": "low",
+      "scope": "operational",
+      "evidence_examples": [
+        "Facility security maintenance procedure and records"
+      ]
+    },
+    {
+      "id": "PHY-006",
+      "title": "Workstation use",
+      "area": "physical",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.310(b)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.310",
+      "priority_hint": "medium",
+      "scope": "operational",
+      "evidence_examples": [
+        "Approved workstation-use practices for ePHI environments"
+      ]
+    },
+    {
+      "id": "PHY-007",
+      "title": "Workstation security",
+      "area": "physical",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.310(c)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.310",
+      "priority_hint": "medium",
+      "scope": "operational",
+      "evidence_examples": [
+        "Endpoint/physical workstation safeguards and policy evidence"
+      ]
+    },
+    {
+      "id": "PHY-008",
+      "title": "Device and media controls",
+      "area": "physical",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.310(d)(1)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.310",
+      "priority_hint": "high",
+      "scope": "operational",
+      "evidence_examples": [
+        "Lifecycle controls for ePHI-bearing media and devices"
+      ]
+    },
+    {
+      "id": "PHY-009",
+      "title": "Device and media disposal",
+      "area": "physical",
+      "source_type": "regulatory",
+      "kind": "required",
+      "authority": "45 CFR 164.310(d)(2)(i)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.310",
+      "priority_hint": "high",
+      "scope": "operational",
+      "evidence_examples": [
+        "Secure disposal procedures and verifiable practice"
+      ]
+    },
+    {
+      "id": "PHY-010",
+      "title": "Media reuse",
+      "area": "physical",
+      "source_type": "regulatory",
+      "kind": "required",
+      "authority": "45 CFR 164.310(d)(2)(ii)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.310",
+      "priority_hint": "high",
+      "scope": "operational",
+      "evidence_examples": [
+        "Secure data removal before hardware/media reuse"
+      ]
+    },
+    {
+      "id": "PHY-011",
+      "title": "Device and media accountability",
+      "area": "physical",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.310(d)(2)(iii)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.310",
+      "priority_hint": "medium",
+      "scope": "operational",
+      "evidence_examples": [
+        "Hardware/media movement register and custodians"
+      ]
+    },
+    {
+      "id": "PHY-012",
+      "title": "Data backup before device movement",
+      "area": "physical",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.310(d)(2)(iv)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.310",
+      "priority_hint": "medium",
+      "scope": "operational",
+      "evidence_examples": [
+        "Backup procedures for applicable ePHI media movement"
+      ]
+    },
+    {
+      "id": "TEC-001",
+      "title": "Access control enforcement",
+      "area": "technical",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.312(a)(1)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.312",
+      "priority_hint": "critical",
+      "scope": "technical",
+      "evidence_examples": [
+        "Trace endpoints, queries, service tokens and tenant-specific authorization tests"
+      ]
+    },
+    {
+      "id": "TEC-002",
+      "title": "Unique user identification",
+      "area": "technical",
+      "source_type": "regulatory",
+      "kind": "required",
+      "authority": "45 CFR 164.312(a)(2)(i)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.312",
+      "priority_hint": "high",
+      "scope": "technical",
+      "evidence_examples": [
+        "Unique accounts, service identity traceability and access logs"
+      ]
+    },
+    {
+      "id": "TEC-003",
+      "title": "Emergency access procedure",
+      "area": "technical",
+      "source_type": "regulatory",
+      "kind": "required",
+      "authority": "45 CFR 164.312(a)(2)(ii)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.312",
+      "priority_hint": "high",
+      "scope": "technical",
+      "evidence_examples": [
+        "Documented break-glass procedure and synthetic exercise"
+      ]
+    },
+    {
+      "id": "TEC-004",
+      "title": "Automatic logoff",
+      "area": "technical",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.312(a)(2)(iii)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.312",
+      "priority_hint": "medium",
+      "scope": "technical",
+      "evidence_examples": [
+        "Session inactivity handling or documented equivalent"
+      ]
+    },
+    {
+      "id": "TEC-005",
+      "title": "Encryption and decryption",
+      "area": "technical",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.312(a)(2)(iv)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.312",
+      "priority_hint": "critical",
+      "scope": "technical",
+      "evidence_examples": [
+        "Evidence of ePHI encryption at rest and key management",
+        "addressable evaluation"
+      ]
+    },
+    {
+      "id": "TEC-006",
+      "title": "Audit controls",
+      "area": "technical",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.312(b)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.312",
+      "priority_hint": "high",
+      "scope": "technical",
+      "evidence_examples": [
+        "Demonstrated ePHI activity logging, protections and review workflow"
+      ]
+    },
+    {
+      "id": "TEC-007",
+      "title": "Integrity safeguards",
+      "area": "technical",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.312(c)(1)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.312",
+      "priority_hint": "high",
+      "scope": "technical",
+      "evidence_examples": [
+        "Tests of ePHI modification permissions and integrity controls"
+      ]
+    },
+    {
+      "id": "TEC-008",
+      "title": "ePHI integrity authentication mechanism",
+      "area": "technical",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.312(c)(2)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.312",
+      "priority_hint": "high",
+      "scope": "technical",
+      "evidence_examples": [
+        "Tamper detection or documented reasonable alternative"
+      ]
+    },
+    {
+      "id": "TEC-009",
+      "title": "Person or entity authentication",
+      "area": "technical",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.312(d)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.312",
+      "priority_hint": "critical",
+      "scope": "technical",
+      "evidence_examples": [
+        "Verified identity at PHI lookup, workflow and tool-action boundaries"
+      ]
+    },
+    {
+      "id": "TEC-010",
+      "title": "Transmission security",
+      "area": "technical",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.312(e)(1)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.312",
+      "priority_hint": "critical",
+      "scope": "technical",
+      "evidence_examples": [
+        "TLS and protections for all ePHI transmitting services"
+      ]
+    },
+    {
+      "id": "TEC-011",
+      "title": "Transmission integrity controls",
+      "area": "technical",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.312(e)(2)(i)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.312",
+      "priority_hint": "high",
+      "scope": "technical",
+      "evidence_examples": [
+        "Message/request integrity checks and scope-based evaluation"
+      ]
+    },
+    {
+      "id": "TEC-012",
+      "title": "Transmission encryption",
+      "area": "technical",
+      "source_type": "regulatory",
+      "kind": "addressable",
+      "authority": "45 CFR 164.312(e)(2)(ii)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.312",
+      "priority_hint": "critical",
+      "scope": "technical",
+      "evidence_examples": [
+        "TLS/transport encryption and documented addressable decision"
+      ]
+    },
+    {
+      "id": "ORG-001",
+      "title": "Business associate contractual protections",
+      "area": "organizational",
+      "source_type": "regulatory",
+      "kind": "required",
+      "authority": "45 CFR 164.314(a)(1)-(2)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.314",
+      "priority_hint": "critical",
+      "scope": "contractual",
+      "evidence_examples": [
+        "Executed agreements with obligated vendors and documented applicability"
+      ]
+    },
+    {
+      "id": "POL-001",
+      "title": "Implemented security policies and procedures",
+      "area": "documentation",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.316(a)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.316",
+      "priority_hint": "high",
+      "scope": "operational",
+      "evidence_examples": [
+        "Approved operational procedures and practice evidence"
+      ]
+    },
+    {
+      "id": "POL-002",
+      "title": "Document required policies and activities",
+      "area": "documentation",
+      "source_type": "regulatory",
+      "kind": "standard",
+      "authority": "45 CFR 164.316(b)(1)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.316",
+      "priority_hint": "high",
+      "scope": "operational",
+      "evidence_examples": [
+        "Versioned written policies, procedures and documented assessments"
+      ]
+    },
+    {
+      "id": "POL-003",
+      "title": "Six-year security-document retention",
+      "area": "documentation",
+      "source_type": "regulatory",
+      "kind": "required",
+      "authority": "45 CFR 164.316(b)(2)(i)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.316",
+      "priority_hint": "high",
+      "scope": "operational",
+      "evidence_examples": [
+        "Retention policy for required Security Rule documentation and historical copies"
+      ]
+    },
+    {
+      "id": "POL-004",
+      "title": "Availability of documentation",
+      "area": "documentation",
+      "source_type": "regulatory",
+      "kind": "required",
+      "authority": "45 CFR 164.316(b)(2)(ii)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.316",
+      "priority_hint": "medium",
+      "scope": "operational",
+      "evidence_examples": [
+        "Responsible personnel can obtain required documentation"
+      ]
+    },
+    {
+      "id": "POL-005",
+      "title": "Documentation updates",
+      "area": "documentation",
+      "source_type": "regulatory",
+      "kind": "required",
+      "authority": "45 CFR 164.316(b)(2)(iii)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.316",
+      "priority_hint": "medium",
+      "scope": "operational",
+      "evidence_examples": [
+        "Periodic and change-triggered review/approval history"
+      ]
+    },
+    {
+      "id": "PRV-001",
+      "title": "Permitted PHI uses and disclosures",
+      "area": "privacy",
+      "source_type": "regulatory",
+      "kind": "related_rule",
+      "authority": "45 CFR 164.502(a)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-E/section-164.502",
+      "priority_hint": "critical",
+      "scope": "contractual",
+      "evidence_examples": [
+        "Documented permitted uses, downstream disclosures and guardrails",
+        "legal review"
+      ]
+    },
+    {
+      "id": "PRV-002",
+      "title": "Business associate agreements for PHI",
+      "area": "privacy",
+      "source_type": "regulatory",
+      "kind": "related_rule",
+      "authority": "45 CFR 164.504(e)",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-E/section-164.504",
+      "priority_hint": "critical",
+      "scope": "contractual",
+      "evidence_examples": [
+        "Signed customer BAAs and permitted-use restrictions",
+        "legal review"
+      ]
+    },
+    {
+      "id": "BRH-001",
+      "title": "Business associate breach notification",
+      "area": "breach",
+      "source_type": "regulatory",
+      "kind": "related_rule",
+      "authority": "45 CFR 164.410",
+      "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-D/section-164.410",
+      "priority_hint": "critical",
+      "scope": "operational",
+      "evidence_examples": [
+        "Breach identification/escalation procedure, timing and contractual notification responsibilities"
+      ]
+    },
+    {
+      "id": "ENG-001",
+      "title": "Cross-tenant authorization in all data planes",
+      "area": "engineering",
+      "source_type": "engineering",
+      "kind": "practice",
+      "authority": "NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate)",
+      "source_url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
+      "priority_hint": "critical",
+      "scope": "technical",
+      "evidence_examples": [
+        "Synthetic multi-tenant negative tests across queries, caches, search and queues"
+      ]
+    },
+    {
+      "id": "ENG-002",
+      "title": "PHI-safe AI and tool invocation",
+      "area": "engineering",
+      "source_type": "engineering",
+      "kind": "practice",
+      "authority": "NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate)",
+      "source_url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
+      "priority_hint": "critical",
+      "scope": "technical",
+      "evidence_examples": [
+        "Model-provider eligibility and BAA",
+        "server-side tool policy",
+        "synthetic prompt injection tests"
+      ]
+    },
+    {
+      "id": "ENG-003",
+      "title": "Log and telemetry minimization",
+      "area": "engineering",
+      "source_type": "engineering",
+      "kind": "practice",
+      "authority": "NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate)",
+      "source_url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
+      "priority_hint": "high",
+      "scope": "technical",
+      "evidence_examples": [
+        "No unnecessary PHI in logs, traces, analytics, error tracking and session replay"
+      ]
+    },
+    {
+      "id": "ENG-004",
+      "title": "Channel-specific PHI gating",
+      "area": "engineering",
+      "source_type": "engineering",
+      "kind": "practice",
+      "authority": "NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate)",
+      "source_url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
+      "priority_hint": "high",
+      "scope": "technical",
+      "evidence_examples": [
+        "Validation of patient identity, approved channel and routing safeguards"
+      ]
+    },
+    {
+      "id": "ENG-005",
+      "title": "Credential exposure and rotation",
+      "area": "engineering",
+      "source_type": "engineering",
+      "kind": "practice",
+      "authority": "NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate)",
+      "source_url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
+      "priority_hint": "high",
+      "scope": "technical",
+      "evidence_examples": [
+        "Code/config scan results and credential manager/rotation workflow"
+      ]
+    },
+    {
+      "id": "ENG-006",
+      "title": "Vulnerability management pipeline",
+      "area": "engineering",
+      "source_type": "engineering",
+      "kind": "practice",
+      "authority": "NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate)",
+      "source_url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
+      "priority_hint": "high",
+      "scope": "technical",
+      "evidence_examples": [
+        "Dependency/image/SAST scan evidence plus human triage and remediation tracking"
+      ]
+    },
+    {
+      "id": "ENG-007",
+      "title": "Sensitive export and download protections",
+      "area": "engineering",
+      "source_type": "engineering",
+      "kind": "practice",
+      "authority": "NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate)",
+      "source_url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
+      "priority_hint": "high",
+      "scope": "technical",
+      "evidence_examples": [
+        "Authorization, least privilege, link expiry, no PHI in URLs"
+      ]
+    },
+    {
+      "id": "ENG-008",
+      "title": "LLM retrieval isolation and retention",
+      "area": "engineering",
+      "source_type": "engineering",
+      "kind": "practice",
+      "authority": "NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate)",
+      "source_url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
+      "priority_hint": "high",
+      "scope": "technical",
+      "evidence_examples": [
+        "Per-tenant RAG filters, embeddings lifecycle, model prompt retention and provider subprocessor validation"
+      ]
+    },
+    {
+      "id": "ENG-009",
+      "title": "Secure integration/webhook processing",
+      "area": "engineering",
+      "source_type": "engineering",
+      "kind": "practice",
+      "authority": "NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate)",
+      "source_url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
+      "priority_hint": "high",
+      "scope": "technical",
+      "evidence_examples": [
+        "Signed webhooks, scoped credentials, replay defense and privacy review"
+      ]
+    },
+    {
+      "id": "ENG-010",
+      "title": "Restore and incident exercises",
+      "area": "engineering",
+      "source_type": "engineering",
+      "kind": "practice",
+      "authority": "NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate)",
+      "source_url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
+      "priority_hint": "high",
+      "scope": "technical",
+      "evidence_examples": [
+        "Synthetic backup restoration and controlled incident-response simulation"
+      ]
+    },
+    {
+      "id": "ENG-011",
+      "title": "Safe AI side-effect boundaries",
+      "area": "engineering",
+      "source_type": "engineering",
+      "kind": "practice",
+      "authority": "NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate)",
+      "source_url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
+      "priority_hint": "high",
+      "scope": "technical",
+      "evidence_examples": [
+        "Explicit approval, idempotency and least-privilege scope for CRM/PMS writes"
+      ]
+    },
+    {
+      "id": "ENG-012",
+      "title": "Browser storage and frontend privacy",
+      "area": "engineering",
+      "source_type": "engineering",
+      "kind": "practice",
+      "authority": "NIST SP 800-66 Rev. 2 (guidance; not a HIPAA mandate)",
+      "source_url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
+      "priority_hint": "medium",
+      "scope": "technical",
+      "evidence_examples": [
+        "Tests for PHI in browser storage, analytics, URL, source maps and cache"
+      ]
+    }
+  ]
+}

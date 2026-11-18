@@ -1,0 +1,4 @@
+interface:
+  display_name: HIPAA Guardian
+  short_description: Evidence-based HIPAA code audit and remediation planning
+  brand_color: "#196B77"
